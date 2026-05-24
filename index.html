@@ -595,6 +595,42 @@
       font-weight: 820;
     }
 
+    .social-links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 16px;
+      max-width: 560px;
+    }
+
+    .social-link {
+      min-height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 11px 13px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.7);
+      color: var(--ink);
+      font-weight: 820;
+      transition: transform 170ms ease, border-color 170ms ease, box-shadow 170ms ease;
+    }
+
+    .social-link:hover {
+      transform: translateY(-2px);
+      border-color: rgba(13, 127, 114, 0.28);
+      box-shadow: 0 14px 34px rgba(17, 24, 22, 0.1);
+    }
+
+    .social-link span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.86rem;
+      font-weight: 720;
+    }
+
     .contact-points {
       display: grid;
       gap: 12px;
@@ -748,6 +784,10 @@
       }
 
       .contact-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .social-links {
         grid-template-columns: 1fr;
       }
     }
@@ -924,6 +964,24 @@
             This contact area is ready for real project enquiries. Reach Rohit directly by email or use the form for a website, portfolio, or brand page request.
           </p>
           <a class="email-pill" href="mailto:rs.rajput.1016@gmail.com">rs.rajput.1016@gmail.com</a>
+          <div class="social-links" aria-label="Rohit Singh social profiles">
+            <a class="social-link" href="https://www.instagram.com/___rohitttttt.___/" target="_blank" rel="noopener">
+              <div>Instagram<span>___rohitttttt.___</span></div>
+              <strong>Open</strong>
+            </a>
+            <a class="social-link" href="https://github.com/RohitSingh-1016" target="_blank" rel="noopener">
+              <div>GitHub<span>RohitSingh-1016</span></div>
+              <strong>Open</strong>
+            </a>
+            <div class="social-link">
+              <div>Facebook<span>Rohit Rajput</span></div>
+              <strong>ID</strong>
+            </div>
+            <div class="social-link">
+              <div>LinkedIn<span>Rohit Singh</span></div>
+              <strong>ID</strong>
+            </div>
+          </div>
           <div class="contact-points">
             <div class="point">
               <b>A</b>
@@ -970,7 +1028,7 @@
   </main>
 
   <footer>
-    Â© 2026 Rohit Singh. Premium single-page HTML design.
+    © 2026 Rohit Singh. Premium single-page HTML design.
   </footer>
 </body>
 </html>

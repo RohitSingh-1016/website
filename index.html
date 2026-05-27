@@ -1125,3 +1125,4511 @@
   </script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Rohit Singh space-themed portfolio with galaxy visuals, personal profile, social links, and contact details." />
+  <title>Rohit Singh | Galaxy Portfolio</title>
+  <style>
+    :root {
+      --space: #050712;
+      --deep: #0a1022;
+      --panel: rgba(10, 18, 38, 0.72);
+      --panel-strong: rgba(12, 24, 52, 0.92);
+      --line: rgba(164, 211, 255, 0.2);
+      --text: #f3f8ff;
+      --soft: #b7c8dd;
+      --muted: #7f93aa;
+      --blue: #62d4ff;
+      --green: #7cffc4;
+      --gold: #ffd36b;
+      --pink: #ff78b7;
+      --violet: #a88cff;
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.42);
+      --radius: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 18% 18%, rgba(98, 212, 255, 0.2), transparent 28%),
+        radial-gradient(circle at 82% 22%, rgba(255, 120, 183, 0.14), transparent 26%),
+        linear-gradient(180deg, #03050d 0%, #091122 48%, #060815 100%);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -3;
+      background-image:
+        radial-gradient(circle, rgba(255, 255, 255, 0.72) 0 1px, transparent 1.5px),
+        radial-gradient(circle, rgba(124, 255, 196, 0.58) 0 1px, transparent 1.5px),
+        radial-gradient(circle, rgba(98, 212, 255, 0.42) 0 1px, transparent 1.5px);
+      background-size: 110px 110px, 170px 170px, 240px 240px;
+      background-position: 0 0, 40px 70px, 120px 30px;
+      opacity: 0.72;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    .stars {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+    }
+
+    .shell {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(5, 7, 18, 0.74);
+      border-bottom: 1px solid rgba(164, 211, 255, 0.13);
+    }
+
+    .nav-inner {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(98, 212, 255, 0.48);
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, rgba(98, 212, 255, 0.24), rgba(124, 255, 196, 0.16));
+      box-shadow: 0 0 28px rgba(98, 212, 255, 0.18);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px;
+      border: 1px solid rgba(164, 211, 255, 0.18);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .nav-links a {
+      min-height: 36px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 12px;
+      border-radius: 7px;
+      color: var(--soft);
+      font-size: 0.93rem;
+      font-weight: 750;
+      transition: color 180ms ease, background 180ms ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+      background: rgba(98, 212, 255, 0.12);
+    }
+
+    .hero {
+      min-height: calc(100vh - 72px);
+      display: grid;
+      align-items: center;
+      padding: 72px 0 96px;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 180px;
+      pointer-events: none;
+      background: linear-gradient(180deg, transparent, rgba(5, 7, 18, 0.86));
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.94fr) minmax(390px, 0.72fr);
+      gap: 56px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      width: fit-content;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 12px;
+      border: 1px solid rgba(124, 255, 196, 0.28);
+      border-radius: var(--radius);
+      background: rgba(124, 255, 196, 0.08);
+      color: #dfffee;
+      font-size: 0.9rem;
+      font-weight: 800;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: var(--green);
+      box-shadow: 0 0 18px var(--green);
+    }
+
+    h1 {
+      max-width: 820px;
+      margin: 18px 0;
+      font-size: clamp(3.4rem, 8vw, 7.5rem);
+      line-height: 0.92;
+      letter-spacing: 0;
+    }
+
+    .hero-copy {
+      max-width: 680px;
+      color: var(--soft);
+      font-size: clamp(1.04rem, 2vw, 1.27rem);
+      margin-bottom: 0;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .button {
+      min-height: 50px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 18px;
+      border: 1px solid transparent;
+      border-radius: var(--radius);
+      font-weight: 850;
+      cursor: pointer;
+      transition: transform 170ms ease, box-shadow 170ms ease, background 170ms ease, border-color 170ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button.primary {
+      color: #04101c;
+      background: linear-gradient(135deg, var(--blue), var(--green));
+      box-shadow: 0 18px 46px rgba(98, 212, 255, 0.22);
+    }
+
+    .button.ghost {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(164, 211, 255, 0.24);
+    }
+
+    .orbit-scene {
+      aspect-ratio: 1;
+      min-height: 430px;
+      position: relative;
+      display: grid;
+      place-items: center;
+      isolation: isolate;
+    }
+
+    .galaxy-ring {
+      position: absolute;
+      width: 94%;
+      height: 40%;
+      border-radius: 50%;
+      border: 1px solid rgba(164, 211, 255, 0.16);
+      transform: rotate(-18deg);
+      box-shadow:
+        0 0 70px rgba(98, 212, 255, 0.18),
+        inset 0 0 38px rgba(255, 255, 255, 0.05);
+    }
+
+    .sun {
+      width: 150px;
+      height: 150px;
+      border-radius: 999px;
+      background:
+        radial-gradient(circle at 32% 28%, #fff7bd 0 6%, #ffd36b 18%, #ff7e5f 54%, #8d2b56 100%);
+      box-shadow:
+        0 0 36px rgba(255, 211, 107, 0.72),
+        0 0 96px rgba(255, 120, 183, 0.32);
+      position: relative;
+      z-index: 2;
+    }
+
+    .orbit {
+      position: absolute;
+      inset: var(--inset);
+      border: 1px solid rgba(164, 211, 255, 0.16);
+      border-radius: 999px;
+      animation: spin var(--speed) linear infinite;
+    }
+
+    .planet {
+      position: absolute;
+      top: 50%;
+      left: -10px;
+      width: var(--size);
+      height: var(--size);
+      border-radius: 999px;
+      transform: translateY(-50%);
+      background: var(--planet);
+      box-shadow: 0 0 28px var(--glow);
+    }
+
+    .planet::after {
+      content: "";
+      position: absolute;
+      inset: 28% -35%;
+      border: 2px solid rgba(255, 255, 255, 0.44);
+      border-left-color: transparent;
+      border-right-color: transparent;
+      border-radius: 50%;
+      transform: rotate(-18deg);
+      opacity: var(--ring, 0);
+    }
+
+    .moon {
+      position: absolute;
+      right: 17%;
+      top: 18%;
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 35% 32%, #ffffff, #9db1c8 72%);
+      box-shadow: 0 0 26px rgba(255, 255, 255, 0.35);
+      animation: float 4.8s ease-in-out infinite;
+    }
+
+    .signal-panel {
+      position: absolute;
+      left: 0;
+      bottom: 24px;
+      width: min(320px, 72%);
+      padding: 18px;
+      border: 1px solid rgba(164, 211, 255, 0.22);
+      border-radius: var(--radius);
+      background: rgba(8, 15, 31, 0.72);
+      backdrop-filter: blur(16px);
+      box-shadow: var(--shadow);
+      z-index: 5;
+    }
+
+    .signal-panel strong {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--green);
+    }
+
+    .signal-panel p {
+      margin-bottom: 0;
+      color: var(--soft);
+      font-size: 0.94rem;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes float {
+      50% {
+        transform: translateY(-14px);
+      }
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: 1.2fr repeat(3, 1fr);
+      gap: 1px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(164, 211, 255, 0.16);
+      box-shadow: var(--shadow);
+      margin-top: -38px;
+      position: relative;
+      z-index: 3;
+    }
+
+    .metric {
+      min-height: 150px;
+      padding: 24px;
+      display: grid;
+      align-content: center;
+      background: var(--panel-strong);
+    }
+
+    .metric.lead {
+      background:
+        linear-gradient(135deg, rgba(98, 212, 255, 0.16), rgba(124, 255, 196, 0.08)),
+        rgba(8, 15, 31, 0.94);
+    }
+
+    .metric h3 {
+      margin-bottom: 8px;
+      font-size: 1.18rem;
+    }
+
+    .metric p,
+    .metric span {
+      color: var(--soft);
+      margin-bottom: 0;
+    }
+
+    .metric strong {
+      color: var(--blue);
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1;
+    }
+
+    .section {
+      padding: 88px 0;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(280px, 0.62fr);
+      gap: 36px;
+      align-items: end;
+      margin-bottom: 32px;
+    }
+
+    h2 {
+      margin-bottom: 0;
+      color: var(--text);
+      font-size: clamp(2.1rem, 4.4vw, 4rem);
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+
+    .section-head p {
+      color: var(--soft);
+      font-size: 1.05rem;
+      margin-bottom: 0;
+    }
+
+    .profile-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .profile-card,
+    .project,
+    .step,
+    .contact-box,
+    .form-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 18px 60px rgba(0, 0, 0, 0.22);
+    }
+
+    .profile-card {
+      min-height: 280px;
+      padding: 22px;
+      display: grid;
+      align-content: space-between;
+      transition: transform 180ms ease, border-color 180ms ease;
+    }
+
+    .profile-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(98, 212, 255, 0.42);
+    }
+
+    .icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--radius);
+      color: #04101c;
+      background: var(--blue);
+      font-weight: 950;
+    }
+
+    .profile-card:nth-child(2) .icon {
+      background: var(--green);
+    }
+
+    .profile-card:nth-child(3) .icon {
+      background: var(--gold);
+    }
+
+    .profile-card:nth-child(4) .icon {
+      background: var(--pink);
+    }
+
+    .profile-card h3 {
+      margin: 34px 0 10px;
+      font-size: 1.2rem;
+    }
+
+    .profile-card p {
+      color: var(--soft);
+      margin-bottom: 0;
+    }
+
+    .showcase {
+      background:
+        linear-gradient(180deg, rgba(3, 5, 13, 0.28), rgba(3, 5, 13, 0.84)),
+        repeating-linear-gradient(90deg, rgba(98, 212, 255, 0.04) 0 1px, transparent 1px 96px);
+      border-top: 1px solid rgba(164, 211, 255, 0.12);
+      border-bottom: 1px solid rgba(164, 211, 255, 0.12);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      grid-template-rows: 290px 290px;
+      gap: 16px;
+    }
+
+    .project {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      align-content: end;
+      padding: 24px;
+      isolation: isolate;
+    }
+
+    .project.large {
+      grid-row: span 2;
+    }
+
+    .project::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--visual);
+      z-index: -2;
+    }
+
+    .project::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(2, 5, 13, 0.08), rgba(2, 5, 13, 0.82));
+      z-index: -1;
+    }
+
+    .project small {
+      width: fit-content;
+      margin-bottom: 10px;
+      padding: 7px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.09);
+      color: #e8f7ff;
+      font-weight: 850;
+    }
+
+    .project h3 {
+      margin-bottom: 8px;
+      font-size: clamp(1.45rem, 2.8vw, 2.45rem);
+      line-height: 1.08;
+    }
+
+    .project p {
+      max-width: 540px;
+      margin-bottom: 0;
+      color: var(--soft);
+    }
+
+    .journey {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .step {
+      min-height: 235px;
+      padding: 24px;
+    }
+
+    .step span {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--radius);
+      background: rgba(98, 212, 255, 0.16);
+      color: var(--blue);
+      border: 1px solid rgba(98, 212, 255, 0.26);
+      font-weight: 900;
+    }
+
+    .step h3 {
+      margin: 30px 0 10px;
+      font-size: 1.24rem;
+    }
+
+    .step p {
+      color: var(--soft);
+      margin-bottom: 0;
+    }
+
+    .contact {
+      padding: 88px 0;
+      background:
+        radial-gradient(circle at 70% 18%, rgba(124, 255, 196, 0.16), transparent 28%),
+        linear-gradient(180deg, rgba(5, 7, 18, 0.4), rgba(5, 7, 18, 0.98));
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.88fr) minmax(340px, 0.64fr);
+      gap: 28px;
+      align-items: start;
+    }
+
+    .contact-box,
+    .form-card {
+      padding: 22px;
+    }
+
+    .contact-box h2 {
+      margin-bottom: 14px;
+    }
+
+    .contact-box p {
+      color: var(--soft);
+      font-size: 1.06rem;
+    }
+
+    .email-pill {
+      width: fit-content;
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 10px 0 20px;
+      padding: 0 15px;
+      border-radius: var(--radius);
+      background: rgba(98, 212, 255, 0.14);
+      color: var(--text);
+      border: 1px solid rgba(98, 212, 255, 0.28);
+      font-weight: 850;
+    }
+
+    .social-links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .social-link {
+      min-height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 11px 13px;
+      border: 1px solid rgba(164, 211, 255, 0.18);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.05);
+      font-weight: 850;
+      transition: transform 170ms ease, border-color 170ms ease, background 170ms ease;
+    }
+
+    .social-link:hover {
+      transform: translateY(-2px);
+      border-color: rgba(124, 255, 196, 0.36);
+      background: rgba(124, 255, 196, 0.08);
+    }
+
+    .social-link span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.86rem;
+      font-weight: 720;
+      overflow-wrap: anywhere;
+    }
+
+    .social-link strong {
+      color: var(--green);
+      font-size: 0.9rem;
+    }
+
+    .form-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    label {
+      display: grid;
+      gap: 7px;
+      color: var(--text);
+      font-weight: 760;
+      font-size: 0.92rem;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      border: 1px solid rgba(164, 211, 255, 0.2);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.07);
+      color: var(--text);
+      padding: 13px 14px;
+      outline: none;
+      transition: border-color 160ms ease, box-shadow 160ms ease;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: rgba(183, 200, 221, 0.62);
+    }
+
+    textarea {
+      min-height: 118px;
+      resize: vertical;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 4px rgba(98, 212, 255, 0.14);
+    }
+
+    .submit {
+      width: 100%;
+      background: linear-gradient(135deg, var(--blue), var(--green));
+      color: #04101c;
+    }
+
+    footer {
+      padding: 26px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.94rem;
+      background: #050712;
+      border-top: 1px solid rgba(164, 211, 255, 0.12);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 1ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .metrics,
+      .section-head,
+      .profile-grid,
+      .project-grid,
+      .journey,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 54px;
+      }
+
+      .orbit-scene {
+        min-height: 390px;
+      }
+
+      .metrics {
+        margin-top: 0;
+      }
+
+      .project-grid {
+        grid-template-rows: none;
+      }
+
+      .project,
+      .project.large {
+        min-height: 340px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .shell {
+        width: min(100% - 28px, 1180px);
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .nav-inner {
+        min-height: 66px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 48px 0 68px;
+      }
+
+      h1 {
+        font-size: clamp(3rem, 17vw, 4.8rem);
+      }
+
+      .actions,
+      .button {
+        width: 100%;
+      }
+
+      .hero-grid {
+        gap: 34px;
+      }
+
+      .orbit-scene {
+        min-height: 330px;
+      }
+
+      .sun {
+        width: 112px;
+        height: 112px;
+      }
+
+      .signal-panel {
+        position: relative;
+        width: 100%;
+        bottom: auto;
+        margin-top: 18px;
+      }
+
+      .section,
+      .contact {
+        padding: 64px 0;
+      }
+
+      .profile-card,
+      .project,
+      .step,
+      .contact-box,
+      .form-card,
+      .metric {
+        padding: 20px;
+      }
+
+      .social-links {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <canvas class="stars" id="starfield" aria-hidden="true"></canvas>
+
+  <nav class="nav" aria-label="Primary navigation">
+    <div class="shell nav-inner">
+      <a class="brand" href="#home" aria-label="Rohit Singh home">
+        <span class="brand-mark">RS</span>
+        <span>Rohit Singh</span>
+      </a>
+      <div class="nav-links">
+        <a href="#profile">Profile</a>
+        <a href="#work">Orbit</a>
+        <a href="#journey">Journey</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="home">
+    <div class="shell hero-grid">
+      <div>
+        <span class="eyebrow">Galaxy Portfolio Online</span>
+        <h1>Rohit Singh</h1>
+        <p class="hero-copy">
+          A cinematic personal portfolio for a future-ready digital identity. Explore Rohit's profile, creative energy, social universe, and contact details in one stellar space.
+        </p>
+        <div class="actions">
+          <a class="button primary" href="#work">Launch Portfolio</a>
+          <a class="button ghost" href="mailto:rs.rajput.1016@gmail.com">Send Signal</a>
+        </div>
+      </div>
+
+      <div class="orbit-scene" aria-label="Animated galaxy and planets view">
+        <div class="galaxy-ring"></div>
+        <div class="moon"></div>
+        <div class="orbit" style="--inset: 14%; --speed: 18s;">
+          <div class="planet" style="--size: 28px; --planet: radial-gradient(circle at 34% 30%, #ffffff, #62d4ff 45%, #1956c8); --glow: rgba(98, 212, 255, 0.5); --ring: 0;"></div>
+        </div>
+        <div class="orbit" style="--inset: 25%; --speed: 28s;">
+          <div class="planet" style="--size: 42px; --planet: radial-gradient(circle at 28% 25%, #fff1b5, #ffd36b 45%, #c05b2a); --glow: rgba(255, 211, 107, 0.5); --ring: 1;"></div>
+        </div>
+        <div class="orbit" style="--inset: 4%; --speed: 44s;">
+          <div class="planet" style="--size: 34px; --planet: radial-gradient(circle at 34% 26%, #d6fff0, #7cffc4 45%, #0a8871); --glow: rgba(124, 255, 196, 0.48); --ring: 0;"></div>
+        </div>
+        <div class="sun"></div>
+        <aside class="signal-panel">
+          <strong>Mission Control</strong>
+          <p>Digital identity, portfolio presence, social links, and direct email are live for Rohit Singh.</p>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="shell metrics" aria-label="Portfolio metrics">
+      <div class="metric lead">
+        <h3>Built as a personal galaxy page.</h3>
+        <p>A bold first impression with a space view, clean identity sections, social links, and a contact path.</p>
+      </div>
+      <div class="metric">
+        <strong>4</strong>
+        <span>Social gateways</span>
+      </div>
+      <div class="metric">
+        <strong>100%</strong>
+        <span>Responsive layout</span>
+      </div>
+      <div class="metric">
+        <strong>2026</strong>
+        <span>Portfolio launch</span>
+      </div>
+    </section>
+
+    <section class="shell section" id="profile">
+      <div class="section-head">
+        <h2>Profile signals from Rohit's universe.</h2>
+        <p>
+          The portfolio is designed around clarity, personality, and a strong online presence, with every section tuned for a modern personal brand.
+        </p>
+      </div>
+
+      <div class="profile-grid">
+        <article class="profile-card">
+          <div>
+            <div class="icon">01</div>
+            <h3>Identity</h3>
+            <p>Name-first portfolio presentation for Rohit Singh with a confident, memorable visual system.</p>
+          </div>
+        </article>
+        <article class="profile-card">
+          <div>
+            <div class="icon">02</div>
+            <h3>Digital Mindset</h3>
+            <p>A future-ready profile inspired by the digital revolution, creativity, and bold self-expression.</p>
+          </div>
+        </article>
+        <article class="profile-card">
+          <div>
+            <div class="icon">03</div>
+            <h3>Social Presence</h3>
+            <p>Instagram, GitHub, Facebook, LinkedIn, and email are organized into a single clean contact hub.</p>
+          </div>
+        </article>
+        <article class="profile-card">
+          <div>
+            <div class="icon">04</div>
+            <h3>Responsive Design</h3>
+            <p>The page adapts across desktop, tablet, and mobile with a polished galaxy view on every screen.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="showcase" id="work">
+      <div class="shell section">
+        <div class="section-head">
+          <h2>Portfolio orbit with cinematic highlights.</h2>
+          <p>Each panel frames a part of Rohit's online identity: profile, social connection, and future growth.</p>
+        </div>
+
+        <div class="project-grid">
+          <article class="project large" style="--visual: radial-gradient(circle at 26% 28%, rgba(255, 211, 107, 0.98), transparent 12%), radial-gradient(circle at 62% 58%, rgba(98, 212, 255, 0.74), transparent 18%), linear-gradient(135deg, #081226, #1b1634 46%, #061527);">
+            <small>Signature Identity</small>
+            <h3>A name that lands like a planet.</h3>
+            <p>Rohit Singh gets a strong hero view, personal introduction, and a visual style made for instant recognition.</p>
+          </article>
+          <article class="project" style="--visual: radial-gradient(circle at 72% 26%, rgba(124, 255, 196, 0.88), transparent 18%), radial-gradient(circle at 28% 72%, rgba(255, 120, 183, 0.56), transparent 22%), linear-gradient(135deg, #071327, #10263a);">
+            <small>Social Constellation</small>
+            <h3>All links in one orbit.</h3>
+            <p>Visitors can jump to social profiles or email without hunting through scattered details.</p>
+          </article>
+          <article class="project" style="--visual: radial-gradient(circle at 18% 24%, rgba(168, 140, 255, 0.82), transparent 17%), radial-gradient(circle at 76% 70%, rgba(98, 212, 255, 0.5), transparent 24%), linear-gradient(135deg, #120d26, #061827);">
+            <small>Growth Path</small>
+            <h3>Ready for future updates.</h3>
+            <p>Achievements, real projects, photos, or a resume can be added later without changing the whole page.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell section" id="journey">
+      <div class="section-head">
+        <h2>A simple journey through the stars.</h2>
+        <p>
+          The page moves visitors from first impression to profile understanding, then straight into connection.
+        </p>
+      </div>
+
+      <div class="journey">
+        <article class="step">
+          <span>1</span>
+          <h3>Discover</h3>
+          <p>Open with a galaxy view and a clear introduction to Rohit Singh.</p>
+        </article>
+        <article class="step">
+          <span>2</span>
+          <h3>Explore</h3>
+          <p>Scan profile strengths, social presence, and portfolio highlights in focused sections.</p>
+        </article>
+        <article class="step">
+          <span>3</span>
+          <h3>Connect</h3>
+          <p>Use email or social links to reach Rohit directly from the contact hub.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="shell contact-grid">
+        <div class="contact-box">
+          <h2>Contact Rohit Singh.</h2>
+          <p>
+            Send a message, follow the socials, or open the profile links. This contact hub keeps Rohit's personal details together in one place.
+          </p>
+          <a class="email-pill" href="mailto:rs.rajput.1016@gmail.com">rs.rajput.1016@gmail.com</a>
+
+          <div class="social-links" aria-label="Rohit Singh social profiles">
+            <a class="social-link" href="https://instagram.com/___rohitttttt.___" target="_blank" rel="noopener">
+              <div>Instagram<span>___rohitttttt.___</span></div>
+              <strong>Open</strong>
+            </a>
+            <a class="social-link" href="https://github.com/RohitSingh-1016" target="_blank" rel="noopener">
+              <div>GitHub<span>RohitSingh-1016</span></div>
+              <strong>Open</strong>
+            </a>
+            <a class="social-link" href="https://www.facebook.com/public/Rohit-Rajput" target="_blank" rel="noopener">
+              <div>Facebook<span>Rohit Rajput</span></div>
+              <strong>Search</strong>
+            </a>
+            <a class="social-link" href="https://www.linkedin.com/search/results/people/?keywords=Rohit%20Singh" target="_blank" rel="noopener">
+              <div>LinkedIn<span>Rohit Singh</span></div>
+              <strong>Search</strong>
+            </a>
+          </div>
+        </div>
+
+        <form class="form-card" onsubmit="event.preventDefault(); alert('Signal received. This demo form is ready for a backend connection.');">
+          <div class="form-grid">
+            <label>
+              Full Name
+              <input type="text" name="name" placeholder="Enter your name" required />
+            </label>
+            <label>
+              Email Address
+              <input type="email" name="email" placeholder="you@example.com" required />
+            </label>
+            <label>
+              Mission Topic
+              <input type="text" name="topic" placeholder="Collaboration, project, general message..." />
+            </label>
+            <label>
+              Message
+              <textarea name="message" placeholder="Write your message for Rohit"></textarea>
+            </label>
+            <button class="button submit" type="submit">Send Message</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2026 Rohit Singh. Galaxy portfolio and personal digital identity.
+  </footer>
+
+  <script>
+    const canvas = document.getElementById("starfield");
+    const ctx = canvas.getContext("2d");
+    let stars = [];
+
+    function resizeStars() {
+      const ratio = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = Math.floor(window.innerWidth * ratio);
+      canvas.height = Math.floor(window.innerHeight * ratio);
+      canvas.style.width = `${window.innerWidth}px`;
+      canvas.style.height = `${window.innerHeight}px`;
+      ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+
+      const count = Math.min(190, Math.floor((window.innerWidth * window.innerHeight) / 5200));
+      stars = Array.from({ length: count }, () => ({
+        x: Math.random() * window.innerWidth,
+        y: Math.random() * window.innerHeight,
+        r: Math.random() * 1.7 + 0.4,
+        vx: Math.random() * 0.16 + 0.02,
+        alpha: Math.random() * 0.68 + 0.24
+      }));
+    }
+
+    function drawStars() {
+      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+      for (const star of stars) {
+        star.x += star.vx;
+        if (star.x > window.innerWidth + 4) {
+          star.x = -4;
+          star.y = Math.random() * window.innerHeight;
+        }
+        ctx.beginPath();
+        ctx.fillStyle = `rgba(222, 244, 255, ${star.alpha})`;
+        ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      requestAnimationFrame(drawStars);
+    }
+
+    resizeStars();
+    drawStars();
+    window.addEventListener("resize", resizeStars);
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Rohit Singh space-themed portfolio with galaxy visuals, personal profile, social links, and contact details." />
+  <title>Rohit Singh | Galaxy Portfolio</title>
+  <style>
+    :root {
+      --space: #050712;
+      --deep: #0a1022;
+      --panel: rgba(10, 18, 38, 0.72);
+      --panel-strong: rgba(12, 24, 52, 0.92);
+      --line: rgba(164, 211, 255, 0.2);
+      --text: #f3f8ff;
+      --soft: #b7c8dd;
+      --muted: #7f93aa;
+      --blue: #62d4ff;
+      --green: #7cffc4;
+      --gold: #ffd36b;
+      --pink: #ff78b7;
+      --violet: #a88cff;
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.42);
+      --radius: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 18% 18%, rgba(98, 212, 255, 0.2), transparent 28%),
+        radial-gradient(circle at 82% 22%, rgba(255, 120, 183, 0.14), transparent 26%),
+        linear-gradient(180deg, #03050d 0%, #091122 48%, #060815 100%);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -3;
+      background-image:
+        radial-gradient(circle, rgba(255, 255, 255, 0.72) 0 1px, transparent 1.5px),
+        radial-gradient(circle, rgba(124, 255, 196, 0.58) 0 1px, transparent 1.5px),
+        radial-gradient(circle, rgba(98, 212, 255, 0.42) 0 1px, transparent 1.5px);
+      background-size: 110px 110px, 170px 170px, 240px 240px;
+      background-position: 0 0, 40px 70px, 120px 30px;
+      opacity: 0.72;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    .stars {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+    }
+
+    .shell {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(5, 7, 18, 0.74);
+      border-bottom: 1px solid rgba(164, 211, 255, 0.13);
+    }
+
+    .nav-inner {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(98, 212, 255, 0.48);
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, rgba(98, 212, 255, 0.24), rgba(124, 255, 196, 0.16));
+      box-shadow: 0 0 28px rgba(98, 212, 255, 0.18);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px;
+      border: 1px solid rgba(164, 211, 255, 0.18);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .nav-links a {
+      min-height: 36px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 12px;
+      border-radius: 7px;
+      color: var(--soft);
+      font-size: 0.93rem;
+      font-weight: 750;
+      transition: color 180ms ease, background 180ms ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+      background: rgba(98, 212, 255, 0.12);
+    }
+
+    .hero {
+      min-height: calc(100vh - 72px);
+      display: grid;
+      align-items: center;
+      padding: 72px 0 96px;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 180px;
+      pointer-events: none;
+      background: linear-gradient(180deg, transparent, rgba(5, 7, 18, 0.86));
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.94fr) minmax(390px, 0.72fr);
+      gap: 56px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      width: fit-content;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 12px;
+      border: 1px solid rgba(124, 255, 196, 0.28);
+      border-radius: var(--radius);
+      background: rgba(124, 255, 196, 0.08);
+      color: #dfffee;
+      font-size: 0.9rem;
+      font-weight: 800;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: var(--green);
+      box-shadow: 0 0 18px var(--green);
+    }
+
+    h1 {
+      max-width: 820px;
+      margin: 18px 0;
+      font-size: clamp(3.4rem, 8vw, 7.5rem);
+      line-height: 0.92;
+      letter-spacing: 0;
+    }
+
+    .hero-copy {
+      max-width: 680px;
+      color: var(--soft);
+      font-size: clamp(1.04rem, 2vw, 1.27rem);
+      margin-bottom: 0;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .button {
+      min-height: 50px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 18px;
+      border: 1px solid transparent;
+      border-radius: var(--radius);
+      font-weight: 850;
+      cursor: pointer;
+      transition: transform 170ms ease, box-shadow 170ms ease, background 170ms ease, border-color 170ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button.primary {
+      color: #04101c;
+      background: linear-gradient(135deg, var(--blue), var(--green));
+      box-shadow: 0 18px 46px rgba(98, 212, 255, 0.22);
+    }
+
+    .button.ghost {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(164, 211, 255, 0.24);
+    }
+
+    .orbit-scene {
+      aspect-ratio: 1;
+      min-height: 430px;
+      position: relative;
+      display: grid;
+      place-items: center;
+      isolation: isolate;
+    }
+
+    .galaxy-ring {
+      position: absolute;
+      width: 94%;
+      height: 40%;
+      border-radius: 50%;
+      border: 1px solid rgba(164, 211, 255, 0.16);
+      transform: rotate(-18deg);
+      box-shadow:
+        0 0 70px rgba(98, 212, 255, 0.18),
+        inset 0 0 38px rgba(255, 255, 255, 0.05);
+    }
+
+    .sun {
+      width: 150px;
+      height: 150px;
+      border-radius: 999px;
+      background:
+        radial-gradient(circle at 32% 28%, #fff7bd 0 6%, #ffd36b 18%, #ff7e5f 54%, #8d2b56 100%);
+      box-shadow:
+        0 0 36px rgba(255, 211, 107, 0.72),
+        0 0 96px rgba(255, 120, 183, 0.32);
+      position: relative;
+      z-index: 2;
+    }
+
+    .orbit {
+      position: absolute;
+      inset: var(--inset);
+      border: 1px solid rgba(164, 211, 255, 0.16);
+      border-radius: 999px;
+      animation: spin var(--speed) linear infinite;
+    }
+
+    .planet {
+      position: absolute;
+      top: 50%;
+      left: -10px;
+      width: var(--size);
+      height: var(--size);
+      border-radius: 999px;
+      transform: translateY(-50%);
+      background: var(--planet);
+      box-shadow: 0 0 28px var(--glow);
+    }
+
+    .planet::after {
+      content: "";
+      position: absolute;
+      inset: 28% -35%;
+      border: 2px solid rgba(255, 255, 255, 0.44);
+      border-left-color: transparent;
+      border-right-color: transparent;
+      border-radius: 50%;
+      transform: rotate(-18deg);
+      opacity: var(--ring, 0);
+    }
+
+    .moon {
+      position: absolute;
+      right: 17%;
+      top: 18%;
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 35% 32%, #ffffff, #9db1c8 72%);
+      box-shadow: 0 0 26px rgba(255, 255, 255, 0.35);
+      animation: float 4.8s ease-in-out infinite;
+    }
+
+    .signal-panel {
+      position: absolute;
+      left: 0;
+      bottom: 24px;
+      width: min(320px, 72%);
+      padding: 18px;
+      border: 1px solid rgba(164, 211, 255, 0.22);
+      border-radius: var(--radius);
+      background: rgba(8, 15, 31, 0.72);
+      backdrop-filter: blur(16px);
+      box-shadow: var(--shadow);
+      z-index: 5;
+    }
+
+    .signal-panel strong {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--green);
+    }
+
+    .signal-panel p {
+      margin-bottom: 0;
+      color: var(--soft);
+      font-size: 0.94rem;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes float {
+      50% {
+        transform: translateY(-14px);
+      }
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: 1.2fr repeat(3, 1fr);
+      gap: 1px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(164, 211, 255, 0.16);
+      box-shadow: var(--shadow);
+      margin-top: -38px;
+      position: relative;
+      z-index: 3;
+    }
+
+    .metric {
+      min-height: 150px;
+      padding: 24px;
+      display: grid;
+      align-content: center;
+      background: var(--panel-strong);
+    }
+
+    .metric.lead {
+      background:
+        linear-gradient(135deg, rgba(98, 212, 255, 0.16), rgba(124, 255, 196, 0.08)),
+        rgba(8, 15, 31, 0.94);
+    }
+
+    .metric h3 {
+      margin-bottom: 8px;
+      font-size: 1.18rem;
+    }
+
+    .metric p,
+    .metric span {
+      color: var(--soft);
+      margin-bottom: 0;
+    }
+
+    .metric strong {
+      color: var(--blue);
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1;
+    }
+
+    .section {
+      padding: 88px 0;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(280px, 0.62fr);
+      gap: 36px;
+      align-items: end;
+      margin-bottom: 32px;
+    }
+
+    h2 {
+      margin-bottom: 0;
+      color: var(--text);
+      font-size: clamp(2.1rem, 4.4vw, 4rem);
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+
+    .section-head p {
+      color: var(--soft);
+      font-size: 1.05rem;
+      margin-bottom: 0;
+    }
+
+    .profile-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .profile-card,
+    .project,
+    .step,
+    .contact-box,
+    .form-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 18px 60px rgba(0, 0, 0, 0.22);
+    }
+
+    .profile-card {
+      min-height: 280px;
+      padding: 22px;
+      display: grid;
+      align-content: space-between;
+      transition: transform 180ms ease, border-color 180ms ease;
+    }
+
+    .profile-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(98, 212, 255, 0.42);
+    }
+
+    .icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--radius);
+      color: #04101c;
+      background: var(--blue);
+      font-weight: 950;
+    }
+
+    .profile-card:nth-child(2) .icon {
+      background: var(--green);
+    }
+
+    .profile-card:nth-child(3) .icon {
+      background: var(--gold);
+    }
+
+    .profile-card:nth-child(4) .icon {
+      background: var(--pink);
+    }
+
+    .profile-card h3 {
+      margin: 34px 0 10px;
+      font-size: 1.2rem;
+    }
+
+    .profile-card p {
+      color: var(--soft);
+      margin-bottom: 0;
+    }
+
+    .showcase {
+      background:
+        linear-gradient(180deg, rgba(3, 5, 13, 0.28), rgba(3, 5, 13, 0.84)),
+        repeating-linear-gradient(90deg, rgba(98, 212, 255, 0.04) 0 1px, transparent 1px 96px);
+      border-top: 1px solid rgba(164, 211, 255, 0.12);
+      border-bottom: 1px solid rgba(164, 211, 255, 0.12);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      grid-template-rows: 290px 290px;
+      gap: 16px;
+    }
+
+    .project {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      align-content: end;
+      padding: 24px;
+      isolation: isolate;
+    }
+
+    .project.large {
+      grid-row: span 2;
+    }
+
+    .project::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--visual);
+      z-index: -2;
+    }
+
+    .project::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(2, 5, 13, 0.08), rgba(2, 5, 13, 0.82));
+      z-index: -1;
+    }
+
+    .project small {
+      width: fit-content;
+      margin-bottom: 10px;
+      padding: 7px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.09);
+      color: #e8f7ff;
+      font-weight: 850;
+    }
+
+    .project h3 {
+      margin-bottom: 8px;
+      font-size: clamp(1.45rem, 2.8vw, 2.45rem);
+      line-height: 1.08;
+    }
+
+    .project p {
+      max-width: 540px;
+      margin-bottom: 0;
+      color: var(--soft);
+    }
+
+    .journey {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .step {
+      min-height: 235px;
+      padding: 24px;
+    }
+
+    .step span {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--radius);
+      background: rgba(98, 212, 255, 0.16);
+      color: var(--blue);
+      border: 1px solid rgba(98, 212, 255, 0.26);
+      font-weight: 900;
+    }
+
+    .step h3 {
+      margin: 30px 0 10px;
+      font-size: 1.24rem;
+    }
+
+    .step p {
+      color: var(--soft);
+      margin-bottom: 0;
+    }
+
+    .contact {
+      padding: 88px 0;
+      background:
+        radial-gradient(circle at 70% 18%, rgba(124, 255, 196, 0.16), transparent 28%),
+        linear-gradient(180deg, rgba(5, 7, 18, 0.4), rgba(5, 7, 18, 0.98));
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.88fr) minmax(340px, 0.64fr);
+      gap: 28px;
+      align-items: start;
+    }
+
+    .contact-box,
+    .form-card {
+      padding: 22px;
+    }
+
+    .contact-box h2 {
+      margin-bottom: 14px;
+    }
+
+    .contact-box p {
+      color: var(--soft);
+      font-size: 1.06rem;
+    }
+
+    .email-pill {
+      width: fit-content;
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 10px 0 20px;
+      padding: 0 15px;
+      border-radius: var(--radius);
+      background: rgba(98, 212, 255, 0.14);
+      color: var(--text);
+      border: 1px solid rgba(98, 212, 255, 0.28);
+      font-weight: 850;
+    }
+
+    .social-links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .social-link {
+      min-height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 11px 13px;
+      border: 1px solid rgba(164, 211, 255, 0.18);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.05);
+      font-weight: 850;
+      transition: transform 170ms ease, border-color 170ms ease, background 170ms ease;
+    }
+
+    .social-link:hover {
+      transform: translateY(-2px);
+      border-color: rgba(124, 255, 196, 0.36);
+      background: rgba(124, 255, 196, 0.08);
+    }
+
+    .social-link span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.86rem;
+      font-weight: 720;
+      overflow-wrap: anywhere;
+    }
+
+    .social-link strong {
+      color: var(--green);
+      font-size: 0.9rem;
+    }
+
+    .form-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    label {
+      display: grid;
+      gap: 7px;
+      color: var(--text);
+      font-weight: 760;
+      font-size: 0.92rem;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      border: 1px solid rgba(164, 211, 255, 0.2);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.07);
+      color: var(--text);
+      padding: 13px 14px;
+      outline: none;
+      transition: border-color 160ms ease, box-shadow 160ms ease;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: rgba(183, 200, 221, 0.62);
+    }
+
+    textarea {
+      min-height: 118px;
+      resize: vertical;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 4px rgba(98, 212, 255, 0.14);
+    }
+
+    .submit {
+      width: 100%;
+      background: linear-gradient(135deg, var(--blue), var(--green));
+      color: #04101c;
+    }
+
+    footer {
+      padding: 26px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.94rem;
+      background: #050712;
+      border-top: 1px solid rgba(164, 211, 255, 0.12);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 1ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .metrics,
+      .section-head,
+      .profile-grid,
+      .project-grid,
+      .journey,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 54px;
+      }
+
+      .orbit-scene {
+        min-height: 390px;
+      }
+
+      .metrics {
+        margin-top: 0;
+      }
+
+      .project-grid {
+        grid-template-rows: none;
+      }
+
+      .project,
+      .project.large {
+        min-height: 340px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .shell {
+        width: min(100% - 28px, 1180px);
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .nav-inner {
+        min-height: 66px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 48px 0 68px;
+      }
+
+      h1 {
+        font-size: clamp(3rem, 17vw, 4.8rem);
+      }
+
+      .actions,
+      .button {
+        width: 100%;
+      }
+
+      .hero-grid {
+        gap: 34px;
+      }
+
+      .orbit-scene {
+        min-height: 330px;
+      }
+
+      .sun {
+        width: 112px;
+        height: 112px;
+      }
+
+      .signal-panel {
+        position: relative;
+        width: 100%;
+        bottom: auto;
+        margin-top: 18px;
+      }
+
+      .section,
+      .contact {
+        padding: 64px 0;
+      }
+
+      .profile-card,
+      .project,
+      .step,
+      .contact-box,
+      .form-card,
+      .metric {
+        padding: 20px;
+      }
+
+      .social-links {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <canvas class="stars" id="starfield" aria-hidden="true"></canvas>
+
+  <nav class="nav" aria-label="Primary navigation">
+    <div class="shell nav-inner">
+      <a class="brand" href="#home" aria-label="Rohit Singh home">
+        <span class="brand-mark">RS</span>
+        <span>Rohit Singh</span>
+      </a>
+      <div class="nav-links">
+        <a href="#profile">Profile</a>
+        <a href="#work">Orbit</a>
+        <a href="#journey">Journey</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="home">
+    <div class="shell hero-grid">
+      <div>
+        <span class="eyebrow">Galaxy Portfolio Online</span>
+        <h1>Rohit Singh</h1>
+        <p class="hero-copy">
+          A cinematic personal portfolio for a future-ready digital identity. Explore Rohit's profile, creative energy, social universe, and contact details in one stellar space.
+        </p>
+        <div class="actions">
+          <a class="button primary" href="#work">Launch Portfolio</a>
+          <a class="button ghost" href="mailto:rs.rajput.1016@gmail.com">Send Signal</a>
+        </div>
+      </div>
+
+      <div class="orbit-scene" aria-label="Animated galaxy and planets view">
+        <div class="galaxy-ring"></div>
+        <div class="moon"></div>
+        <div class="orbit" style="--inset: 14%; --speed: 18s;">
+          <div class="planet" style="--size: 28px; --planet: radial-gradient(circle at 34% 30%, #ffffff, #62d4ff 45%, #1956c8); --glow: rgba(98, 212, 255, 0.5); --ring: 0;"></div>
+        </div>
+        <div class="orbit" style="--inset: 25%; --speed: 28s;">
+          <div class="planet" style="--size: 42px; --planet: radial-gradient(circle at 28% 25%, #fff1b5, #ffd36b 45%, #c05b2a); --glow: rgba(255, 211, 107, 0.5); --ring: 1;"></div>
+        </div>
+        <div class="orbit" style="--inset: 4%; --speed: 44s;">
+          <div class="planet" style="--size: 34px; --planet: radial-gradient(circle at 34% 26%, #d6fff0, #7cffc4 45%, #0a8871); --glow: rgba(124, 255, 196, 0.48); --ring: 0;"></div>
+        </div>
+        <div class="sun"></div>
+        <aside class="signal-panel">
+          <strong>Mission Control</strong>
+          <p>Digital identity, portfolio presence, social links, and direct email are live for Rohit Singh.</p>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="shell metrics" aria-label="Portfolio metrics">
+      <div class="metric lead">
+        <h3>Built as a personal galaxy page.</h3>
+        <p>A bold first impression with a space view, clean identity sections, social links, and a contact path.</p>
+      </div>
+      <div class="metric">
+        <strong>4</strong>
+        <span>Social gateways</span>
+      </div>
+      <div class="metric">
+        <strong>100%</strong>
+        <span>Responsive layout</span>
+      </div>
+      <div class="metric">
+        <strong>2026</strong>
+        <span>Portfolio launch</span>
+      </div>
+    </section>
+
+    <section class="shell section" id="profile">
+      <div class="section-head">
+        <h2>Profile signals from Rohit's universe.</h2>
+        <p>
+          The portfolio is designed around clarity, personality, and a strong online presence, with every section tuned for a modern personal brand.
+        </p>
+      </div>
+
+      <div class="profile-grid">
+        <article class="profile-card">
+          <div>
+            <div class="icon">01</div>
+            <h3>Identity</h3>
+            <p>Name-first portfolio presentation for Rohit Singh with a confident, memorable visual system.</p>
+          </div>
+        </article>
+        <article class="profile-card">
+          <div>
+            <div class="icon">02</div>
+            <h3>Digital Mindset</h3>
+            <p>A future-ready profile inspired by the digital revolution, creativity, and bold self-expression.</p>
+          </div>
+        </article>
+        <article class="profile-card">
+          <div>
+            <div class="icon">03</div>
+            <h3>Social Presence</h3>
+            <p>Instagram, GitHub, Facebook, LinkedIn, and email are organized into a single clean contact hub.</p>
+          </div>
+        </article>
+        <article class="profile-card">
+          <div>
+            <div class="icon">04</div>
+            <h3>Responsive Design</h3>
+            <p>The page adapts across desktop, tablet, and mobile with a polished galaxy view on every screen.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="showcase" id="work">
+      <div class="shell section">
+        <div class="section-head">
+          <h2>Portfolio orbit with cinematic highlights.</h2>
+          <p>Each panel frames a part of Rohit's online identity: profile, social connection, and future growth.</p>
+        </div>
+
+        <div class="project-grid">
+          <article class="project large" style="--visual: radial-gradient(circle at 26% 28%, rgba(255, 211, 107, 0.98), transparent 12%), radial-gradient(circle at 62% 58%, rgba(98, 212, 255, 0.74), transparent 18%), linear-gradient(135deg, #081226, #1b1634 46%, #061527);">
+            <small>Signature Identity</small>
+            <h3>A name that lands like a planet.</h3>
+            <p>Rohit Singh gets a strong hero view, personal introduction, and a visual style made for instant recognition.</p>
+          </article>
+          <article class="project" style="--visual: radial-gradient(circle at 72% 26%, rgba(124, 255, 196, 0.88), transparent 18%), radial-gradient(circle at 28% 72%, rgba(255, 120, 183, 0.56), transparent 22%), linear-gradient(135deg, #071327, #10263a);">
+            <small>Social Constellation</small>
+            <h3>All links in one orbit.</h3>
+            <p>Visitors can jump to social profiles or email without hunting through scattered details.</p>
+          </article>
+          <article class="project" style="--visual: radial-gradient(circle at 18% 24%, rgba(168, 140, 255, 0.82), transparent 17%), radial-gradient(circle at 76% 70%, rgba(98, 212, 255, 0.5), transparent 24%), linear-gradient(135deg, #120d26, #061827);">
+            <small>Growth Path</small>
+            <h3>Ready for future updates.</h3>
+            <p>Achievements, real projects, photos, or a resume can be added later without changing the whole page.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell section" id="journey">
+      <div class="section-head">
+        <h2>A simple journey through the stars.</h2>
+        <p>
+          The page moves visitors from first impression to profile understanding, then straight into connection.
+        </p>
+      </div>
+
+      <div class="journey">
+        <article class="step">
+          <span>1</span>
+          <h3>Discover</h3>
+          <p>Open with a galaxy view and a clear introduction to Rohit Singh.</p>
+        </article>
+        <article class="step">
+          <span>2</span>
+          <h3>Explore</h3>
+          <p>Scan profile strengths, social presence, and portfolio highlights in focused sections.</p>
+        </article>
+        <article class="step">
+          <span>3</span>
+          <h3>Connect</h3>
+          <p>Use email or social links to reach Rohit directly from the contact hub.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="shell contact-grid">
+        <div class="contact-box">
+          <h2>Contact Rohit Singh.</h2>
+          <p>
+            Send a message, follow the socials, or open the profile links. This contact hub keeps Rohit's personal details together in one place.
+          </p>
+          <a class="email-pill" href="mailto:rs.rajput.1016@gmail.com">rs.rajput.1016@gmail.com</a>
+
+          <div class="social-links" aria-label="Rohit Singh social profiles">
+            <a class="social-link" href="https://instagram.com/___rohitttttt.___" target="_blank" rel="noopener">
+              <div>Instagram<span>___rohitttttt.___</span></div>
+              <strong>Open</strong>
+            </a>
+            <a class="social-link" href="https://github.com/RohitSingh-1016" target="_blank" rel="noopener">
+              <div>GitHub<span>RohitSingh-1016</span></div>
+              <strong>Open</strong>
+            </a>
+            <a class="social-link" href="https://www.facebook.com/public/Rohit-Rajput" target="_blank" rel="noopener">
+              <div>Facebook<span>Rohit Rajput</span></div>
+              <strong>Search</strong>
+            </a>
+            <a class="social-link" href="https://www.linkedin.com/search/results/people/?keywords=Rohit%20Singh" target="_blank" rel="noopener">
+              <div>LinkedIn<span>Rohit Singh</span></div>
+              <strong>Search</strong>
+            </a>
+          </div>
+        </div>
+
+        <form class="form-card" onsubmit="event.preventDefault(); alert('Signal received. This demo form is ready for a backend connection.');">
+          <div class="form-grid">
+            <label>
+              Full Name
+              <input type="text" name="name" placeholder="Enter your name" required />
+            </label>
+            <label>
+              Email Address
+              <input type="email" name="email" placeholder="you@example.com" required />
+            </label>
+            <label>
+              Mission Topic
+              <input type="text" name="topic" placeholder="Collaboration, project, general message..." />
+            </label>
+            <label>
+              Message
+              <textarea name="message" placeholder="Write your message for Rohit"></textarea>
+            </label>
+            <button class="button submit" type="submit">Send Message</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2026 Rohit Singh. Galaxy portfolio and personal digital identity.
+  </footer>
+
+  <script>
+    const canvas = document.getElementById("starfield");
+    const ctx = canvas.getContext("2d");
+    let stars = [];
+
+    function resizeStars() {
+      const ratio = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = Math.floor(window.innerWidth * ratio);
+      canvas.height = Math.floor(window.innerHeight * ratio);
+      canvas.style.width = `${window.innerWidth}px`;
+      canvas.style.height = `${window.innerHeight}px`;
+      ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+
+      const count = Math.min(190, Math.floor((window.innerWidth * window.innerHeight) / 5200));
+      stars = Array.from({ length: count }, () => ({
+        x: Math.random() * window.innerWidth,
+        y: Math.random() * window.innerHeight,
+        r: Math.random() * 1.7 + 0.4,
+        vx: Math.random() * 0.16 + 0.02,
+        alpha: Math.random() * 0.68 + 0.24
+      }));
+    }
+
+    function drawStars() {
+      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+      for (const star of stars) {
+        star.x += star.vx;
+        if (star.x > window.innerWidth + 4) {
+          star.x = -4;
+          star.y = Math.random() * window.innerHeight;
+        }
+        ctx.beginPath();
+        ctx.fillStyle = `rgba(222, 244, 255, ${star.alpha})`;
+        ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      requestAnimationFrame(drawStars);
+    }
+
+    resizeStars();
+    drawStars();
+    window.addEventListener("resize", resizeStars);
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Rohit Singh space-themed portfolio with galaxy visuals, personal profile, social links, and contact details." />
+  <title>Rohit Singh | Galaxy Portfolio</title>
+  <style>
+    :root {
+      --space: #050712;
+      --deep: #0a1022;
+      --panel: rgba(10, 18, 38, 0.72);
+      --panel-strong: rgba(12, 24, 52, 0.92);
+      --line: rgba(164, 211, 255, 0.2);
+      --text: #f3f8ff;
+      --soft: #b7c8dd;
+      --muted: #7f93aa;
+      --blue: #62d4ff;
+      --green: #7cffc4;
+      --gold: #ffd36b;
+      --pink: #ff78b7;
+      --violet: #a88cff;
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.42);
+      --radius: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 18% 18%, rgba(98, 212, 255, 0.2), transparent 28%),
+        radial-gradient(circle at 82% 22%, rgba(255, 120, 183, 0.14), transparent 26%),
+        linear-gradient(180deg, #03050d 0%, #091122 48%, #060815 100%);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -3;
+      background-image:
+        radial-gradient(circle, rgba(255, 255, 255, 0.72) 0 1px, transparent 1.5px),
+        radial-gradient(circle, rgba(124, 255, 196, 0.58) 0 1px, transparent 1.5px),
+        radial-gradient(circle, rgba(98, 212, 255, 0.42) 0 1px, transparent 1.5px);
+      background-size: 110px 110px, 170px 170px, 240px 240px;
+      background-position: 0 0, 40px 70px, 120px 30px;
+      opacity: 0.72;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    .stars {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+    }
+
+    .shell {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(5, 7, 18, 0.74);
+      border-bottom: 1px solid rgba(164, 211, 255, 0.13);
+    }
+
+    .nav-inner {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(98, 212, 255, 0.48);
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, rgba(98, 212, 255, 0.24), rgba(124, 255, 196, 0.16));
+      box-shadow: 0 0 28px rgba(98, 212, 255, 0.18);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px;
+      border: 1px solid rgba(164, 211, 255, 0.18);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .nav-links a {
+      min-height: 36px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 12px;
+      border-radius: 7px;
+      color: var(--soft);
+      font-size: 0.93rem;
+      font-weight: 750;
+      transition: color 180ms ease, background 180ms ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+      background: rgba(98, 212, 255, 0.12);
+    }
+
+    .hero {
+      min-height: calc(100vh - 72px);
+      display: grid;
+      align-items: center;
+      padding: 72px 0 96px;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 180px;
+      pointer-events: none;
+      background: linear-gradient(180deg, transparent, rgba(5, 7, 18, 0.86));
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.94fr) minmax(390px, 0.72fr);
+      gap: 56px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      width: fit-content;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 12px;
+      border: 1px solid rgba(124, 255, 196, 0.28);
+      border-radius: var(--radius);
+      background: rgba(124, 255, 196, 0.08);
+      color: #dfffee;
+      font-size: 0.9rem;
+      font-weight: 800;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: var(--green);
+      box-shadow: 0 0 18px var(--green);
+    }
+
+    h1 {
+      max-width: 820px;
+      margin: 18px 0;
+      font-size: clamp(3.4rem, 8vw, 7.5rem);
+      line-height: 0.92;
+      letter-spacing: 0;
+    }
+
+    .hero-copy {
+      max-width: 680px;
+      color: var(--soft);
+      font-size: clamp(1.04rem, 2vw, 1.27rem);
+      margin-bottom: 0;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .button {
+      min-height: 50px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 18px;
+      border: 1px solid transparent;
+      border-radius: var(--radius);
+      font-weight: 850;
+      cursor: pointer;
+      transition: transform 170ms ease, box-shadow 170ms ease, background 170ms ease, border-color 170ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button.primary {
+      color: #04101c;
+      background: linear-gradient(135deg, var(--blue), var(--green));
+      box-shadow: 0 18px 46px rgba(98, 212, 255, 0.22);
+    }
+
+    .button.ghost {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(164, 211, 255, 0.24);
+    }
+
+    .orbit-scene {
+      aspect-ratio: 1;
+      min-height: 430px;
+      position: relative;
+      display: grid;
+      place-items: center;
+      isolation: isolate;
+    }
+
+    .galaxy-ring {
+      position: absolute;
+      width: 94%;
+      height: 40%;
+      border-radius: 50%;
+      border: 1px solid rgba(164, 211, 255, 0.16);
+      transform: rotate(-18deg);
+      box-shadow:
+        0 0 70px rgba(98, 212, 255, 0.18),
+        inset 0 0 38px rgba(255, 255, 255, 0.05);
+    }
+
+    .sun {
+      width: 150px;
+      height: 150px;
+      border-radius: 999px;
+      background:
+        radial-gradient(circle at 32% 28%, #fff7bd 0 6%, #ffd36b 18%, #ff7e5f 54%, #8d2b56 100%);
+      box-shadow:
+        0 0 36px rgba(255, 211, 107, 0.72),
+        0 0 96px rgba(255, 120, 183, 0.32);
+      position: relative;
+      z-index: 2;
+    }
+
+    .orbit {
+      position: absolute;
+      inset: var(--inset);
+      border: 1px solid rgba(164, 211, 255, 0.16);
+      border-radius: 999px;
+      animation: spin var(--speed) linear infinite;
+    }
+
+    .planet {
+      position: absolute;
+      top: 50%;
+      left: -10px;
+      width: var(--size);
+      height: var(--size);
+      border-radius: 999px;
+      transform: translateY(-50%);
+      background: var(--planet);
+      box-shadow: 0 0 28px var(--glow);
+    }
+
+    .planet::after {
+      content: "";
+      position: absolute;
+      inset: 28% -35%;
+      border: 2px solid rgba(255, 255, 255, 0.44);
+      border-left-color: transparent;
+      border-right-color: transparent;
+      border-radius: 50%;
+      transform: rotate(-18deg);
+      opacity: var(--ring, 0);
+    }
+
+    .moon {
+      position: absolute;
+      right: 17%;
+      top: 18%;
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 35% 32%, #ffffff, #9db1c8 72%);
+      box-shadow: 0 0 26px rgba(255, 255, 255, 0.35);
+      animation: float 4.8s ease-in-out infinite;
+    }
+
+    .signal-panel {
+      position: absolute;
+      left: 0;
+      bottom: 24px;
+      width: min(320px, 72%);
+      padding: 18px;
+      border: 1px solid rgba(164, 211, 255, 0.22);
+      border-radius: var(--radius);
+      background: rgba(8, 15, 31, 0.72);
+      backdrop-filter: blur(16px);
+      box-shadow: var(--shadow);
+      z-index: 5;
+    }
+
+    .signal-panel strong {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--green);
+    }
+
+    .signal-panel p {
+      margin-bottom: 0;
+      color: var(--soft);
+      font-size: 0.94rem;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes float {
+      50% {
+        transform: translateY(-14px);
+      }
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: 1.2fr repeat(3, 1fr);
+      gap: 1px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(164, 211, 255, 0.16);
+      box-shadow: var(--shadow);
+      margin-top: -38px;
+      position: relative;
+      z-index: 3;
+    }
+
+    .metric {
+      min-height: 150px;
+      padding: 24px;
+      display: grid;
+      align-content: center;
+      background: var(--panel-strong);
+    }
+
+    .metric.lead {
+      background:
+        linear-gradient(135deg, rgba(98, 212, 255, 0.16), rgba(124, 255, 196, 0.08)),
+        rgba(8, 15, 31, 0.94);
+    }
+
+    .metric h3 {
+      margin-bottom: 8px;
+      font-size: 1.18rem;
+    }
+
+    .metric p,
+    .metric span {
+      color: var(--soft);
+      margin-bottom: 0;
+    }
+
+    .metric strong {
+      color: var(--blue);
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1;
+    }
+
+    .section {
+      padding: 88px 0;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(280px, 0.62fr);
+      gap: 36px;
+      align-items: end;
+      margin-bottom: 32px;
+    }
+
+    h2 {
+      margin-bottom: 0;
+      color: var(--text);
+      font-size: clamp(2.1rem, 4.4vw, 4rem);
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+
+    .section-head p {
+      color: var(--soft);
+      font-size: 1.05rem;
+      margin-bottom: 0;
+    }
+
+    .profile-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .profile-card,
+    .project,
+    .step,
+    .contact-box,
+    .form-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 18px 60px rgba(0, 0, 0, 0.22);
+    }
+
+    .profile-card {
+      min-height: 280px;
+      padding: 22px;
+      display: grid;
+      align-content: space-between;
+      transition: transform 180ms ease, border-color 180ms ease;
+    }
+
+    .profile-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(98, 212, 255, 0.42);
+    }
+
+    .icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--radius);
+      color: #04101c;
+      background: var(--blue);
+      font-weight: 950;
+    }
+
+    .profile-card:nth-child(2) .icon {
+      background: var(--green);
+    }
+
+    .profile-card:nth-child(3) .icon {
+      background: var(--gold);
+    }
+
+    .profile-card:nth-child(4) .icon {
+      background: var(--pink);
+    }
+
+    .profile-card h3 {
+      margin: 34px 0 10px;
+      font-size: 1.2rem;
+    }
+
+    .profile-card p {
+      color: var(--soft);
+      margin-bottom: 0;
+    }
+
+    .showcase {
+      background:
+        linear-gradient(180deg, rgba(3, 5, 13, 0.28), rgba(3, 5, 13, 0.84)),
+        repeating-linear-gradient(90deg, rgba(98, 212, 255, 0.04) 0 1px, transparent 1px 96px);
+      border-top: 1px solid rgba(164, 211, 255, 0.12);
+      border-bottom: 1px solid rgba(164, 211, 255, 0.12);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      grid-template-rows: 290px 290px;
+      gap: 16px;
+    }
+
+    .project {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      align-content: end;
+      padding: 24px;
+      isolation: isolate;
+    }
+
+    .project.large {
+      grid-row: span 2;
+    }
+
+    .project::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--visual);
+      z-index: -2;
+    }
+
+    .project::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(2, 5, 13, 0.08), rgba(2, 5, 13, 0.82));
+      z-index: -1;
+    }
+
+    .project small {
+      width: fit-content;
+      margin-bottom: 10px;
+      padding: 7px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.09);
+      color: #e8f7ff;
+      font-weight: 850;
+    }
+
+    .project h3 {
+      margin-bottom: 8px;
+      font-size: clamp(1.45rem, 2.8vw, 2.45rem);
+      line-height: 1.08;
+    }
+
+    .project p {
+      max-width: 540px;
+      margin-bottom: 0;
+      color: var(--soft);
+    }
+
+    .journey {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .step {
+      min-height: 235px;
+      padding: 24px;
+    }
+
+    .step span {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--radius);
+      background: rgba(98, 212, 255, 0.16);
+      color: var(--blue);
+      border: 1px solid rgba(98, 212, 255, 0.26);
+      font-weight: 900;
+    }
+
+    .step h3 {
+      margin: 30px 0 10px;
+      font-size: 1.24rem;
+    }
+
+    .step p {
+      color: var(--soft);
+      margin-bottom: 0;
+    }
+
+    .contact {
+      padding: 88px 0;
+      background:
+        radial-gradient(circle at 70% 18%, rgba(124, 255, 196, 0.16), transparent 28%),
+        linear-gradient(180deg, rgba(5, 7, 18, 0.4), rgba(5, 7, 18, 0.98));
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.88fr) minmax(340px, 0.64fr);
+      gap: 28px;
+      align-items: start;
+    }
+
+    .contact-box,
+    .form-card {
+      padding: 22px;
+    }
+
+    .contact-box h2 {
+      margin-bottom: 14px;
+    }
+
+    .contact-box p {
+      color: var(--soft);
+      font-size: 1.06rem;
+    }
+
+    .email-pill {
+      width: fit-content;
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 10px 0 20px;
+      padding: 0 15px;
+      border-radius: var(--radius);
+      background: rgba(98, 212, 255, 0.14);
+      color: var(--text);
+      border: 1px solid rgba(98, 212, 255, 0.28);
+      font-weight: 850;
+    }
+
+    .social-links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .social-link {
+      min-height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 11px 13px;
+      border: 1px solid rgba(164, 211, 255, 0.18);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.05);
+      font-weight: 850;
+      transition: transform 170ms ease, border-color 170ms ease, background 170ms ease;
+    }
+
+    .social-link:hover {
+      transform: translateY(-2px);
+      border-color: rgba(124, 255, 196, 0.36);
+      background: rgba(124, 255, 196, 0.08);
+    }
+
+    .social-link span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.86rem;
+      font-weight: 720;
+      overflow-wrap: anywhere;
+    }
+
+    .social-link strong {
+      color: var(--green);
+      font-size: 0.9rem;
+    }
+
+    .form-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    label {
+      display: grid;
+      gap: 7px;
+      color: var(--text);
+      font-weight: 760;
+      font-size: 0.92rem;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      border: 1px solid rgba(164, 211, 255, 0.2);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.07);
+      color: var(--text);
+      padding: 13px 14px;
+      outline: none;
+      transition: border-color 160ms ease, box-shadow 160ms ease;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: rgba(183, 200, 221, 0.62);
+    }
+
+    textarea {
+      min-height: 118px;
+      resize: vertical;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 4px rgba(98, 212, 255, 0.14);
+    }
+
+    .submit {
+      width: 100%;
+      background: linear-gradient(135deg, var(--blue), var(--green));
+      color: #04101c;
+    }
+
+    footer {
+      padding: 26px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.94rem;
+      background: #050712;
+      border-top: 1px solid rgba(164, 211, 255, 0.12);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 1ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .metrics,
+      .section-head,
+      .profile-grid,
+      .project-grid,
+      .journey,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 54px;
+      }
+
+      .orbit-scene {
+        min-height: 390px;
+      }
+
+      .metrics {
+        margin-top: 0;
+      }
+
+      .project-grid {
+        grid-template-rows: none;
+      }
+
+      .project,
+      .project.large {
+        min-height: 340px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .shell {
+        width: min(100% - 28px, 1180px);
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .nav-inner {
+        min-height: 66px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 48px 0 68px;
+      }
+
+      h1 {
+        font-size: clamp(3rem, 17vw, 4.8rem);
+      }
+
+      .actions,
+      .button {
+        width: 100%;
+      }
+
+      .hero-grid {
+        gap: 34px;
+      }
+
+      .orbit-scene {
+        min-height: 330px;
+      }
+
+      .sun {
+        width: 112px;
+        height: 112px;
+      }
+
+      .signal-panel {
+        position: relative;
+        width: 100%;
+        bottom: auto;
+        margin-top: 18px;
+      }
+
+      .section,
+      .contact {
+        padding: 64px 0;
+      }
+
+      .profile-card,
+      .project,
+      .step,
+      .contact-box,
+      .form-card,
+      .metric {
+        padding: 20px;
+      }
+
+      .social-links {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <canvas class="stars" id="starfield" aria-hidden="true"></canvas>
+
+  <nav class="nav" aria-label="Primary navigation">
+    <div class="shell nav-inner">
+      <a class="brand" href="#home" aria-label="Rohit Singh home">
+        <span class="brand-mark">RS</span>
+        <span>Rohit Singh</span>
+      </a>
+      <div class="nav-links">
+        <a href="#profile">Profile</a>
+        <a href="#work">Orbit</a>
+        <a href="#journey">Journey</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="home">
+    <div class="shell hero-grid">
+      <div>
+        <span class="eyebrow">Galaxy Portfolio Online</span>
+        <h1>Rohit Singh</h1>
+        <p class="hero-copy">
+          A cinematic personal portfolio for a future-ready digital identity. Explore Rohit's profile, creative energy, social universe, and contact details in one stellar space.
+        </p>
+        <div class="actions">
+          <a class="button primary" href="#work">Launch Portfolio</a>
+          <a class="button ghost" href="mailto:rs.rajput.1016@gmail.com">Send Signal</a>
+        </div>
+      </div>
+
+      <div class="orbit-scene" aria-label="Animated galaxy and planets view">
+        <div class="galaxy-ring"></div>
+        <div class="moon"></div>
+        <div class="orbit" style="--inset: 14%; --speed: 18s;">
+          <div class="planet" style="--size: 28px; --planet: radial-gradient(circle at 34% 30%, #ffffff, #62d4ff 45%, #1956c8); --glow: rgba(98, 212, 255, 0.5); --ring: 0;"></div>
+        </div>
+        <div class="orbit" style="--inset: 25%; --speed: 28s;">
+          <div class="planet" style="--size: 42px; --planet: radial-gradient(circle at 28% 25%, #fff1b5, #ffd36b 45%, #c05b2a); --glow: rgba(255, 211, 107, 0.5); --ring: 1;"></div>
+        </div>
+        <div class="orbit" style="--inset: 4%; --speed: 44s;">
+          <div class="planet" style="--size: 34px; --planet: radial-gradient(circle at 34% 26%, #d6fff0, #7cffc4 45%, #0a8871); --glow: rgba(124, 255, 196, 0.48); --ring: 0;"></div>
+        </div>
+        <div class="sun"></div>
+        <aside class="signal-panel">
+          <strong>Mission Control</strong>
+          <p>Digital identity, portfolio presence, social links, and direct email are live for Rohit Singh.</p>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="shell metrics" aria-label="Portfolio metrics">
+      <div class="metric lead">
+        <h3>Built as a personal galaxy page.</h3>
+        <p>A bold first impression with a space view, clean identity sections, social links, and a contact path.</p>
+      </div>
+      <div class="metric">
+        <strong>4</strong>
+        <span>Social gateways</span>
+      </div>
+      <div class="metric">
+        <strong>100%</strong>
+        <span>Responsive layout</span>
+      </div>
+      <div class="metric">
+        <strong>2026</strong>
+        <span>Portfolio launch</span>
+      </div>
+    </section>
+
+    <section class="shell section" id="profile">
+      <div class="section-head">
+        <h2>Profile signals from Rohit's universe.</h2>
+        <p>
+          The portfolio is designed around clarity, personality, and a strong online presence, with every section tuned for a modern personal brand.
+        </p>
+      </div>
+
+      <div class="profile-grid">
+        <article class="profile-card">
+          <div>
+            <div class="icon">01</div>
+            <h3>Identity</h3>
+            <p>Name-first portfolio presentation for Rohit Singh with a confident, memorable visual system.</p>
+          </div>
+        </article>
+        <article class="profile-card">
+          <div>
+            <div class="icon">02</div>
+            <h3>Digital Mindset</h3>
+            <p>A future-ready profile inspired by the digital revolution, creativity, and bold self-expression.</p>
+          </div>
+        </article>
+        <article class="profile-card">
+          <div>
+            <div class="icon">03</div>
+            <h3>Social Presence</h3>
+            <p>Instagram, GitHub, Facebook, LinkedIn, and email are organized into a single clean contact hub.</p>
+          </div>
+        </article>
+        <article class="profile-card">
+          <div>
+            <div class="icon">04</div>
+            <h3>Responsive Design</h3>
+            <p>The page adapts across desktop, tablet, and mobile with a polished galaxy view on every screen.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="showcase" id="work">
+      <div class="shell section">
+        <div class="section-head">
+          <h2>Portfolio orbit with cinematic highlights.</h2>
+          <p>Each panel frames a part of Rohit's online identity: profile, social connection, and future growth.</p>
+        </div>
+
+        <div class="project-grid">
+          <article class="project large" style="--visual: radial-gradient(circle at 26% 28%, rgba(255, 211, 107, 0.98), transparent 12%), radial-gradient(circle at 62% 58%, rgba(98, 212, 255, 0.74), transparent 18%), linear-gradient(135deg, #081226, #1b1634 46%, #061527);">
+            <small>Signature Identity</small>
+            <h3>A name that lands like a planet.</h3>
+            <p>Rohit Singh gets a strong hero view, personal introduction, and a visual style made for instant recognition.</p>
+          </article>
+          <article class="project" style="--visual: radial-gradient(circle at 72% 26%, rgba(124, 255, 196, 0.88), transparent 18%), radial-gradient(circle at 28% 72%, rgba(255, 120, 183, 0.56), transparent 22%), linear-gradient(135deg, #071327, #10263a);">
+            <small>Social Constellation</small>
+            <h3>All links in one orbit.</h3>
+            <p>Visitors can jump to social profiles or email without hunting through scattered details.</p>
+          </article>
+          <article class="project" style="--visual: radial-gradient(circle at 18% 24%, rgba(168, 140, 255, 0.82), transparent 17%), radial-gradient(circle at 76% 70%, rgba(98, 212, 255, 0.5), transparent 24%), linear-gradient(135deg, #120d26, #061827);">
+            <small>Growth Path</small>
+            <h3>Ready for future updates.</h3>
+            <p>Achievements, real projects, photos, or a resume can be added later without changing the whole page.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell section" id="journey">
+      <div class="section-head">
+        <h2>A simple journey through the stars.</h2>
+        <p>
+          The page moves visitors from first impression to profile understanding, then straight into connection.
+        </p>
+      </div>
+
+      <div class="journey">
+        <article class="step">
+          <span>1</span>
+          <h3>Discover</h3>
+          <p>Open with a galaxy view and a clear introduction to Rohit Singh.</p>
+        </article>
+        <article class="step">
+          <span>2</span>
+          <h3>Explore</h3>
+          <p>Scan profile strengths, social presence, and portfolio highlights in focused sections.</p>
+        </article>
+        <article class="step">
+          <span>3</span>
+          <h3>Connect</h3>
+          <p>Use email or social links to reach Rohit directly from the contact hub.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="shell contact-grid">
+        <div class="contact-box">
+          <h2>Contact Rohit Singh.</h2>
+          <p>
+            Send a message, follow the socials, or open the profile links. This contact hub keeps Rohit's personal details together in one place.
+          </p>
+          <a class="email-pill" href="mailto:rs.rajput.1016@gmail.com">rs.rajput.1016@gmail.com</a>
+
+          <div class="social-links" aria-label="Rohit Singh social profiles">
+            <a class="social-link" href="https://instagram.com/___rohitttttt.___" target="_blank" rel="noopener">
+              <div>Instagram<span>___rohitttttt.___</span></div>
+              <strong>Open</strong>
+            </a>
+            <a class="social-link" href="https://github.com/RohitSingh-1016" target="_blank" rel="noopener">
+              <div>GitHub<span>RohitSingh-1016</span></div>
+              <strong>Open</strong>
+            </a>
+            <a class="social-link" href="https://www.facebook.com/public/Rohit-Rajput" target="_blank" rel="noopener">
+              <div>Facebook<span>Rohit Rajput</span></div>
+              <strong>Search</strong>
+            </a>
+            <a class="social-link" href="https://www.linkedin.com/search/results/people/?keywords=Rohit%20Singh" target="_blank" rel="noopener">
+              <div>LinkedIn<span>Rohit Singh</span></div>
+              <strong>Search</strong>
+            </a>
+          </div>
+        </div>
+
+        <form class="form-card" onsubmit="event.preventDefault(); alert('Signal received. This demo form is ready for a backend connection.');">
+          <div class="form-grid">
+            <label>
+              Full Name
+              <input type="text" name="name" placeholder="Enter your name" required />
+            </label>
+            <label>
+              Email Address
+              <input type="email" name="email" placeholder="you@example.com" required />
+            </label>
+            <label>
+              Mission Topic
+              <input type="text" name="topic" placeholder="Collaboration, project, general message..." />
+            </label>
+            <label>
+              Message
+              <textarea name="message" placeholder="Write your message for Rohit"></textarea>
+            </label>
+            <button class="button submit" type="submit">Send Message</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2026 Rohit Singh. Galaxy portfolio and personal digital identity.
+  </footer>
+
+  <script>
+    const canvas = document.getElementById("starfield");
+    const ctx = canvas.getContext("2d");
+    let stars = [];
+
+    function resizeStars() {
+      const ratio = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = Math.floor(window.innerWidth * ratio);
+      canvas.height = Math.floor(window.innerHeight * ratio);
+      canvas.style.width = `${window.innerWidth}px`;
+      canvas.style.height = `${window.innerHeight}px`;
+      ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+
+      const count = Math.min(190, Math.floor((window.innerWidth * window.innerHeight) / 5200));
+      stars = Array.from({ length: count }, () => ({
+        x: Math.random() * window.innerWidth,
+        y: Math.random() * window.innerHeight,
+        r: Math.random() * 1.7 + 0.4,
+        vx: Math.random() * 0.16 + 0.02,
+        alpha: Math.random() * 0.68 + 0.24
+      }));
+    }
+
+    function drawStars() {
+      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+      for (const star of stars) {
+        star.x += star.vx;
+        if (star.x > window.innerWidth + 4) {
+          star.x = -4;
+          star.y = Math.random() * window.innerHeight;
+        }
+        ctx.beginPath();
+        ctx.fillStyle = `rgba(222, 244, 255, ${star.alpha})`;
+        ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      requestAnimationFrame(drawStars);
+    }
+
+    resizeStars();
+    drawStars();
+    window.addEventListener("resize", resizeStars);
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Rohit Singh space-themed portfolio with galaxy visuals, personal profile, social links, and contact details." />
+  <title>Rohit Singh | Galaxy Portfolio</title>
+  <style>
+    :root {
+      --space: #050712;
+      --deep: #0a1022;
+      --panel: rgba(10, 18, 38, 0.72);
+      --panel-strong: rgba(12, 24, 52, 0.92);
+      --line: rgba(164, 211, 255, 0.2);
+      --text: #f3f8ff;
+      --soft: #b7c8dd;
+      --muted: #7f93aa;
+      --blue: #62d4ff;
+      --green: #7cffc4;
+      --gold: #ffd36b;
+      --pink: #ff78b7;
+      --violet: #a88cff;
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.42);
+      --radius: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 18% 18%, rgba(98, 212, 255, 0.2), transparent 28%),
+        radial-gradient(circle at 82% 22%, rgba(255, 120, 183, 0.14), transparent 26%),
+        linear-gradient(180deg, #03050d 0%, #091122 48%, #060815 100%);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -3;
+      background-image:
+        radial-gradient(circle, rgba(255, 255, 255, 0.72) 0 1px, transparent 1.5px),
+        radial-gradient(circle, rgba(124, 255, 196, 0.58) 0 1px, transparent 1.5px),
+        radial-gradient(circle, rgba(98, 212, 255, 0.42) 0 1px, transparent 1.5px);
+      background-size: 110px 110px, 170px 170px, 240px 240px;
+      background-position: 0 0, 40px 70px, 120px 30px;
+      opacity: 0.72;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    .stars {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+    }
+
+    .shell {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(5, 7, 18, 0.74);
+      border-bottom: 1px solid rgba(164, 211, 255, 0.13);
+    }
+
+    .nav-inner {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(98, 212, 255, 0.48);
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, rgba(98, 212, 255, 0.24), rgba(124, 255, 196, 0.16));
+      box-shadow: 0 0 28px rgba(98, 212, 255, 0.18);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px;
+      border: 1px solid rgba(164, 211, 255, 0.18);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .nav-links a {
+      min-height: 36px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 12px;
+      border-radius: 7px;
+      color: var(--soft);
+      font-size: 0.93rem;
+      font-weight: 750;
+      transition: color 180ms ease, background 180ms ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+      background: rgba(98, 212, 255, 0.12);
+    }
+
+    .hero {
+      min-height: calc(100vh - 72px);
+      display: grid;
+      align-items: center;
+      padding: 72px 0 96px;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 180px;
+      pointer-events: none;
+      background: linear-gradient(180deg, transparent, rgba(5, 7, 18, 0.86));
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.94fr) minmax(390px, 0.72fr);
+      gap: 56px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      width: fit-content;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 12px;
+      border: 1px solid rgba(124, 255, 196, 0.28);
+      border-radius: var(--radius);
+      background: rgba(124, 255, 196, 0.08);
+      color: #dfffee;
+      font-size: 0.9rem;
+      font-weight: 800;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: var(--green);
+      box-shadow: 0 0 18px var(--green);
+    }
+
+    h1 {
+      max-width: 820px;
+      margin: 18px 0;
+      font-size: clamp(3.4rem, 8vw, 7.5rem);
+      line-height: 0.92;
+      letter-spacing: 0;
+    }
+
+    .hero-copy {
+      max-width: 680px;
+      color: var(--soft);
+      font-size: clamp(1.04rem, 2vw, 1.27rem);
+      margin-bottom: 0;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .button {
+      min-height: 50px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 18px;
+      border: 1px solid transparent;
+      border-radius: var(--radius);
+      font-weight: 850;
+      cursor: pointer;
+      transition: transform 170ms ease, box-shadow 170ms ease, background 170ms ease, border-color 170ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button.primary {
+      color: #04101c;
+      background: linear-gradient(135deg, var(--blue), var(--green));
+      box-shadow: 0 18px 46px rgba(98, 212, 255, 0.22);
+    }
+
+    .button.ghost {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(164, 211, 255, 0.24);
+    }
+
+    .orbit-scene {
+      aspect-ratio: 1;
+      min-height: 430px;
+      position: relative;
+      display: grid;
+      place-items: center;
+      isolation: isolate;
+    }
+
+    .galaxy-ring {
+      position: absolute;
+      width: 94%;
+      height: 40%;
+      border-radius: 50%;
+      border: 1px solid rgba(164, 211, 255, 0.16);
+      transform: rotate(-18deg);
+      box-shadow:
+        0 0 70px rgba(98, 212, 255, 0.18),
+        inset 0 0 38px rgba(255, 255, 255, 0.05);
+    }
+
+    .sun {
+      width: 150px;
+      height: 150px;
+      border-radius: 999px;
+      background:
+        radial-gradient(circle at 32% 28%, #fff7bd 0 6%, #ffd36b 18%, #ff7e5f 54%, #8d2b56 100%);
+      box-shadow:
+        0 0 36px rgba(255, 211, 107, 0.72),
+        0 0 96px rgba(255, 120, 183, 0.32);
+      position: relative;
+      z-index: 2;
+    }
+
+    .orbit {
+      position: absolute;
+      inset: var(--inset);
+      border: 1px solid rgba(164, 211, 255, 0.16);
+      border-radius: 999px;
+      animation: spin var(--speed) linear infinite;
+    }
+
+    .planet {
+      position: absolute;
+      top: 50%;
+      left: -10px;
+      width: var(--size);
+      height: var(--size);
+      border-radius: 999px;
+      transform: translateY(-50%);
+      background: var(--planet);
+      box-shadow: 0 0 28px var(--glow);
+    }
+
+    .planet::after {
+      content: "";
+      position: absolute;
+      inset: 28% -35%;
+      border: 2px solid rgba(255, 255, 255, 0.44);
+      border-left-color: transparent;
+      border-right-color: transparent;
+      border-radius: 50%;
+      transform: rotate(-18deg);
+      opacity: var(--ring, 0);
+    }
+
+    .moon {
+      position: absolute;
+      right: 17%;
+      top: 18%;
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 35% 32%, #ffffff, #9db1c8 72%);
+      box-shadow: 0 0 26px rgba(255, 255, 255, 0.35);
+      animation: float 4.8s ease-in-out infinite;
+    }
+
+    .signal-panel {
+      position: absolute;
+      left: 0;
+      bottom: 24px;
+      width: min(320px, 72%);
+      padding: 18px;
+      border: 1px solid rgba(164, 211, 255, 0.22);
+      border-radius: var(--radius);
+      background: rgba(8, 15, 31, 0.72);
+      backdrop-filter: blur(16px);
+      box-shadow: var(--shadow);
+      z-index: 5;
+    }
+
+    .signal-panel strong {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--green);
+    }
+
+    .signal-panel p {
+      margin-bottom: 0;
+      color: var(--soft);
+      font-size: 0.94rem;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes float {
+      50% {
+        transform: translateY(-14px);
+      }
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: 1.2fr repeat(3, 1fr);
+      gap: 1px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(164, 211, 255, 0.16);
+      box-shadow: var(--shadow);
+      margin-top: -38px;
+      position: relative;
+      z-index: 3;
+    }
+
+    .metric {
+      min-height: 150px;
+      padding: 24px;
+      display: grid;
+      align-content: center;
+      background: var(--panel-strong);
+    }
+
+    .metric.lead {
+      background:
+        linear-gradient(135deg, rgba(98, 212, 255, 0.16), rgba(124, 255, 196, 0.08)),
+        rgba(8, 15, 31, 0.94);
+    }
+
+    .metric h3 {
+      margin-bottom: 8px;
+      font-size: 1.18rem;
+    }
+
+    .metric p,
+    .metric span {
+      color: var(--soft);
+      margin-bottom: 0;
+    }
+
+    .metric strong {
+      color: var(--blue);
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1;
+    }
+
+    .section {
+      padding: 88px 0;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(280px, 0.62fr);
+      gap: 36px;
+      align-items: end;
+      margin-bottom: 32px;
+    }
+
+    h2 {
+      margin-bottom: 0;
+      color: var(--text);
+      font-size: clamp(2.1rem, 4.4vw, 4rem);
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+
+    .section-head p {
+      color: var(--soft);
+      font-size: 1.05rem;
+      margin-bottom: 0;
+    }
+
+    .profile-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .profile-card,
+    .project,
+    .step,
+    .contact-box,
+    .form-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 18px 60px rgba(0, 0, 0, 0.22);
+    }
+
+    .profile-card {
+      min-height: 280px;
+      padding: 22px;
+      display: grid;
+      align-content: space-between;
+      transition: transform 180ms ease, border-color 180ms ease;
+    }
+
+    .profile-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(98, 212, 255, 0.42);
+    }
+
+    .icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--radius);
+      color: #04101c;
+      background: var(--blue);
+      font-weight: 950;
+    }
+
+    .profile-card:nth-child(2) .icon {
+      background: var(--green);
+    }
+
+    .profile-card:nth-child(3) .icon {
+      background: var(--gold);
+    }
+
+    .profile-card:nth-child(4) .icon {
+      background: var(--pink);
+    }
+
+    .profile-card h3 {
+      margin: 34px 0 10px;
+      font-size: 1.2rem;
+    }
+
+    .profile-card p {
+      color: var(--soft);
+      margin-bottom: 0;
+    }
+
+    .showcase {
+      background:
+        linear-gradient(180deg, rgba(3, 5, 13, 0.28), rgba(3, 5, 13, 0.84)),
+        repeating-linear-gradient(90deg, rgba(98, 212, 255, 0.04) 0 1px, transparent 1px 96px);
+      border-top: 1px solid rgba(164, 211, 255, 0.12);
+      border-bottom: 1px solid rgba(164, 211, 255, 0.12);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      grid-template-rows: 290px 290px;
+      gap: 16px;
+    }
+
+    .project {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      align-content: end;
+      padding: 24px;
+      isolation: isolate;
+    }
+
+    .project.large {
+      grid-row: span 2;
+    }
+
+    .project::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--visual);
+      z-index: -2;
+    }
+
+    .project::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(2, 5, 13, 0.08), rgba(2, 5, 13, 0.82));
+      z-index: -1;
+    }
+
+    .project small {
+      width: fit-content;
+      margin-bottom: 10px;
+      padding: 7px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.09);
+      color: #e8f7ff;
+      font-weight: 850;
+    }
+
+    .project h3 {
+      margin-bottom: 8px;
+      font-size: clamp(1.45rem, 2.8vw, 2.45rem);
+      line-height: 1.08;
+    }
+
+    .project p {
+      max-width: 540px;
+      margin-bottom: 0;
+      color: var(--soft);
+    }
+
+    .journey {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .step {
+      min-height: 235px;
+      padding: 24px;
+    }
+
+    .step span {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--radius);
+      background: rgba(98, 212, 255, 0.16);
+      color: var(--blue);
+      border: 1px solid rgba(98, 212, 255, 0.26);
+      font-weight: 900;
+    }
+
+    .step h3 {
+      margin: 30px 0 10px;
+      font-size: 1.24rem;
+    }
+
+    .step p {
+      color: var(--soft);
+      margin-bottom: 0;
+    }
+
+    .contact {
+      padding: 88px 0;
+      background:
+        radial-gradient(circle at 70% 18%, rgba(124, 255, 196, 0.16), transparent 28%),
+        linear-gradient(180deg, rgba(5, 7, 18, 0.4), rgba(5, 7, 18, 0.98));
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.88fr) minmax(340px, 0.64fr);
+      gap: 28px;
+      align-items: start;
+    }
+
+    .contact-box,
+    .form-card {
+      padding: 22px;
+    }
+
+    .contact-box h2 {
+      margin-bottom: 14px;
+    }
+
+    .contact-box p {
+      color: var(--soft);
+      font-size: 1.06rem;
+    }
+
+    .email-pill {
+      width: fit-content;
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 10px 0 20px;
+      padding: 0 15px;
+      border-radius: var(--radius);
+      background: rgba(98, 212, 255, 0.14);
+      color: var(--text);
+      border: 1px solid rgba(98, 212, 255, 0.28);
+      font-weight: 850;
+    }
+
+    .social-links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .social-link {
+      min-height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 11px 13px;
+      border: 1px solid rgba(164, 211, 255, 0.18);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.05);
+      font-weight: 850;
+      transition: transform 170ms ease, border-color 170ms ease, background 170ms ease;
+    }
+
+    .social-link:hover {
+      transform: translateY(-2px);
+      border-color: rgba(124, 255, 196, 0.36);
+      background: rgba(124, 255, 196, 0.08);
+    }
+
+    .social-link span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.86rem;
+      font-weight: 720;
+      overflow-wrap: anywhere;
+    }
+
+    .social-link strong {
+      color: var(--green);
+      font-size: 0.9rem;
+    }
+
+    .form-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    label {
+      display: grid;
+      gap: 7px;
+      color: var(--text);
+      font-weight: 760;
+      font-size: 0.92rem;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      border: 1px solid rgba(164, 211, 255, 0.2);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.07);
+      color: var(--text);
+      padding: 13px 14px;
+      outline: none;
+      transition: border-color 160ms ease, box-shadow 160ms ease;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: rgba(183, 200, 221, 0.62);
+    }
+
+    textarea {
+      min-height: 118px;
+      resize: vertical;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 4px rgba(98, 212, 255, 0.14);
+    }
+
+    .submit {
+      width: 100%;
+      background: linear-gradient(135deg, var(--blue), var(--green));
+      color: #04101c;
+    }
+
+    footer {
+      padding: 26px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.94rem;
+      background: #050712;
+      border-top: 1px solid rgba(164, 211, 255, 0.12);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 1ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .metrics,
+      .section-head,
+      .profile-grid,
+      .project-grid,
+      .journey,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 54px;
+      }
+
+      .orbit-scene {
+        min-height: 390px;
+      }
+
+      .metrics {
+        margin-top: 0;
+      }
+
+      .project-grid {
+        grid-template-rows: none;
+      }
+
+      .project,
+      .project.large {
+        min-height: 340px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .shell {
+        width: min(100% - 28px, 1180px);
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .nav-inner {
+        min-height: 66px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 48px 0 68px;
+      }
+
+      h1 {
+        font-size: clamp(3rem, 17vw, 4.8rem);
+      }
+
+      .actions,
+      .button {
+        width: 100%;
+      }
+
+      .hero-grid {
+        gap: 34px;
+      }
+
+      .orbit-scene {
+        min-height: 330px;
+      }
+
+      .sun {
+        width: 112px;
+        height: 112px;
+      }
+
+      .signal-panel {
+        position: relative;
+        width: 100%;
+        bottom: auto;
+        margin-top: 18px;
+      }
+
+      .section,
+      .contact {
+        padding: 64px 0;
+      }
+
+      .profile-card,
+      .project,
+      .step,
+      .contact-box,
+      .form-card,
+      .metric {
+        padding: 20px;
+      }
+
+      .social-links {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <canvas class="stars" id="starfield" aria-hidden="true"></canvas>
+
+  <nav class="nav" aria-label="Primary navigation">
+    <div class="shell nav-inner">
+      <a class="brand" href="#home" aria-label="Rohit Singh home">
+        <span class="brand-mark">RS</span>
+        <span>Rohit Singh</span>
+      </a>
+      <div class="nav-links">
+        <a href="#profile">Profile</a>
+        <a href="#work">Orbit</a>
+        <a href="#journey">Journey</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="home">
+    <div class="shell hero-grid">
+      <div>
+        <span class="eyebrow">Galaxy Portfolio Online</span>
+        <h1>Rohit Singh</h1>
+        <p class="hero-copy">
+          A cinematic personal portfolio for a future-ready digital identity. Explore Rohit's profile, creative energy, social universe, and contact details in one stellar space.
+        </p>
+        <div class="actions">
+          <a class="button primary" href="#work">Launch Portfolio</a>
+          <a class="button ghost" href="mailto:rs.rajput.1016@gmail.com">Send Signal</a>
+        </div>
+      </div>
+
+      <div class="orbit-scene" aria-label="Animated galaxy and planets view">
+        <div class="galaxy-ring"></div>
+        <div class="moon"></div>
+        <div class="orbit" style="--inset: 14%; --speed: 18s;">
+          <div class="planet" style="--size: 28px; --planet: radial-gradient(circle at 34% 30%, #ffffff, #62d4ff 45%, #1956c8); --glow: rgba(98, 212, 255, 0.5); --ring: 0;"></div>
+        </div>
+        <div class="orbit" style="--inset: 25%; --speed: 28s;">
+          <div class="planet" style="--size: 42px; --planet: radial-gradient(circle at 28% 25%, #fff1b5, #ffd36b 45%, #c05b2a); --glow: rgba(255, 211, 107, 0.5); --ring: 1;"></div>
+        </div>
+        <div class="orbit" style="--inset: 4%; --speed: 44s;">
+          <div class="planet" style="--size: 34px; --planet: radial-gradient(circle at 34% 26%, #d6fff0, #7cffc4 45%, #0a8871); --glow: rgba(124, 255, 196, 0.48); --ring: 0;"></div>
+        </div>
+        <div class="sun"></div>
+        <aside class="signal-panel">
+          <strong>Mission Control</strong>
+          <p>Digital identity, portfolio presence, social links, and direct email are live for Rohit Singh.</p>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="shell metrics" aria-label="Portfolio metrics">
+      <div class="metric lead">
+        <h3>Built as a personal galaxy page.</h3>
+        <p>A bold first impression with a space view, clean identity sections, social links, and a contact path.</p>
+      </div>
+      <div class="metric">
+        <strong>4</strong>
+        <span>Social gateways</span>
+      </div>
+      <div class="metric">
+        <strong>100%</strong>
+        <span>Responsive layout</span>
+      </div>
+      <div class="metric">
+        <strong>2026</strong>
+        <span>Portfolio launch</span>
+      </div>
+    </section>
+
+    <section class="shell section" id="profile">
+      <div class="section-head">
+        <h2>Profile signals from Rohit's universe.</h2>
+        <p>
+          The portfolio is designed around clarity, personality, and a strong online presence, with every section tuned for a modern personal brand.
+        </p>
+      </div>
+
+      <div class="profile-grid">
+        <article class="profile-card">
+          <div>
+            <div class="icon">01</div>
+            <h3>Identity</h3>
+            <p>Name-first portfolio presentation for Rohit Singh with a confident, memorable visual system.</p>
+          </div>
+        </article>
+        <article class="profile-card">
+          <div>
+            <div class="icon">02</div>
+            <h3>Digital Mindset</h3>
+            <p>A future-ready profile inspired by the digital revolution, creativity, and bold self-expression.</p>
+          </div>
+        </article>
+        <article class="profile-card">
+          <div>
+            <div class="icon">03</div>
+            <h3>Social Presence</h3>
+            <p>Instagram, GitHub, Facebook, LinkedIn, and email are organized into a single clean contact hub.</p>
+          </div>
+        </article>
+        <article class="profile-card">
+          <div>
+            <div class="icon">04</div>
+            <h3>Responsive Design</h3>
+            <p>The page adapts across desktop, tablet, and mobile with a polished galaxy view on every screen.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="showcase" id="work">
+      <div class="shell section">
+        <div class="section-head">
+          <h2>Portfolio orbit with cinematic highlights.</h2>
+          <p>Each panel frames a part of Rohit's online identity: profile, social connection, and future growth.</p>
+        </div>
+
+        <div class="project-grid">
+          <article class="project large" style="--visual: radial-gradient(circle at 26% 28%, rgba(255, 211, 107, 0.98), transparent 12%), radial-gradient(circle at 62% 58%, rgba(98, 212, 255, 0.74), transparent 18%), linear-gradient(135deg, #081226, #1b1634 46%, #061527);">
+            <small>Signature Identity</small>
+            <h3>A name that lands like a planet.</h3>
+            <p>Rohit Singh gets a strong hero view, personal introduction, and a visual style made for instant recognition.</p>
+          </article>
+          <article class="project" style="--visual: radial-gradient(circle at 72% 26%, rgba(124, 255, 196, 0.88), transparent 18%), radial-gradient(circle at 28% 72%, rgba(255, 120, 183, 0.56), transparent 22%), linear-gradient(135deg, #071327, #10263a);">
+            <small>Social Constellation</small>
+            <h3>All links in one orbit.</h3>
+            <p>Visitors can jump to social profiles or email without hunting through scattered details.</p>
+          </article>
+          <article class="project" style="--visual: radial-gradient(circle at 18% 24%, rgba(168, 140, 255, 0.82), transparent 17%), radial-gradient(circle at 76% 70%, rgba(98, 212, 255, 0.5), transparent 24%), linear-gradient(135deg, #120d26, #061827);">
+            <small>Growth Path</small>
+            <h3>Ready for future updates.</h3>
+            <p>Achievements, real projects, photos, or a resume can be added later without changing the whole page.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell section" id="journey">
+      <div class="section-head">
+        <h2>A simple journey through the stars.</h2>
+        <p>
+          The page moves visitors from first impression to profile understanding, then straight into connection.
+        </p>
+      </div>
+
+      <div class="journey">
+        <article class="step">
+          <span>1</span>
+          <h3>Discover</h3>
+          <p>Open with a galaxy view and a clear introduction to Rohit Singh.</p>
+        </article>
+        <article class="step">
+          <span>2</span>
+          <h3>Explore</h3>
+          <p>Scan profile strengths, social presence, and portfolio highlights in focused sections.</p>
+        </article>
+        <article class="step">
+          <span>3</span>
+          <h3>Connect</h3>
+          <p>Use email or social links to reach Rohit directly from the contact hub.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="shell contact-grid">
+        <div class="contact-box">
+          <h2>Contact Rohit Singh.</h2>
+          <p>
+            Send a message, follow the socials, or open the profile links. This contact hub keeps Rohit's personal details together in one place.
+          </p>
+          <a class="email-pill" href="mailto:rs.rajput.1016@gmail.com">rs.rajput.1016@gmail.com</a>
+
+          <div class="social-links" aria-label="Rohit Singh social profiles">
+            <a class="social-link" href="https://instagram.com/___rohitttttt.___" target="_blank" rel="noopener">
+              <div>Instagram<span>___rohitttttt.___</span></div>
+              <strong>Open</strong>
+            </a>
+            <a class="social-link" href="https://github.com/RohitSingh-1016" target="_blank" rel="noopener">
+              <div>GitHub<span>RohitSingh-1016</span></div>
+              <strong>Open</strong>
+            </a>
+            <a class="social-link" href="https://www.facebook.com/public/Rohit-Rajput" target="_blank" rel="noopener">
+              <div>Facebook<span>Rohit Rajput</span></div>
+              <strong>Search</strong>
+            </a>
+            <a class="social-link" href="https://www.linkedin.com/search/results/people/?keywords=Rohit%20Singh" target="_blank" rel="noopener">
+              <div>LinkedIn<span>Rohit Singh</span></div>
+              <strong>Search</strong>
+            </a>
+          </div>
+        </div>
+
+        <form class="form-card" onsubmit="event.preventDefault(); alert('Signal received. This demo form is ready for a backend connection.');">
+          <div class="form-grid">
+            <label>
+              Full Name
+              <input type="text" name="name" placeholder="Enter your name" required />
+            </label>
+            <label>
+              Email Address
+              <input type="email" name="email" placeholder="you@example.com" required />
+            </label>
+            <label>
+              Mission Topic
+              <input type="text" name="topic" placeholder="Collaboration, project, general message..." />
+            </label>
+            <label>
+              Message
+              <textarea name="message" placeholder="Write your message for Rohit"></textarea>
+            </label>
+            <button class="button submit" type="submit">Send Message</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2026 Rohit Singh. Galaxy portfolio and personal digital identity.
+  </footer>
+
+  <script>
+    const canvas = document.getElementById("starfield");
+    const ctx = canvas.getContext("2d");
+    let stars = [];
+
+    function resizeStars() {
+      const ratio = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = Math.floor(window.innerWidth * ratio);
+      canvas.height = Math.floor(window.innerHeight * ratio);
+      canvas.style.width = `${window.innerWidth}px`;
+      canvas.style.height = `${window.innerHeight}px`;
+      ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+
+      const count = Math.min(190, Math.floor((window.innerWidth * window.innerHeight) / 5200));
+      stars = Array.from({ length: count }, () => ({
+        x: Math.random() * window.innerWidth,
+        y: Math.random() * window.innerHeight,
+        r: Math.random() * 1.7 + 0.4,
+        vx: Math.random() * 0.16 + 0.02,
+        alpha: Math.random() * 0.68 + 0.24
+      }));
+    }
+
+    function drawStars() {
+      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+      for (const star of stars) {
+        star.x += star.vx;
+        if (star.x > window.innerWidth + 4) {
+          star.x = -4;
+          star.y = Math.random() * window.innerHeight;
+        }
+        ctx.beginPath();
+        ctx.fillStyle = `rgba(222, 244, 255, ${star.alpha})`;
+        ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      requestAnimationFrame(drawStars);
+    }
+
+    resizeStars();
+    drawStars();
+    window.addEventListener("resize", resizeStars);
+  </script>
+</body>
+</html>

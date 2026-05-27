@@ -3,23 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Rohit Singh professional portfolio inspired by modern SaaS landing pages, with NASA space imagery, social links, and contact details." />
-  <title>Rohit Singh | Digital Portfolio</title>
+  <meta name="description" content="Rohit Singh premium dark portfolio with realistic rain glass effect, NASA imagery, social links, and contact details." />
+  <title>Rohit Singh | Rain Glass Portfolio</title>
   <style>
     :root {
-      --bg: #f6f8f3;
-      --paper: #ffffff;
-      --ink: #101512;
-      --text: #2a312d;
-      --muted: #69746f;
-      --line: rgba(16, 21, 18, 0.12);
-      --line-strong: rgba(16, 21, 18, 0.22);
-      --green: #b8ff6a;
-      --green-deep: #3a7f2e;
-      --blue: #4078ff;
-      --sky: #dff0ff;
-      --charcoal: #111817;
-      --shadow: 0 24px 70px rgba(16, 21, 18, 0.13);
+      --bg: #030506;
+      --black: #06090a;
+      --panel: rgba(9, 14, 17, 0.74);
+      --panel-strong: rgba(10, 16, 20, 0.9);
+      --glass: rgba(255, 255, 255, 0.07);
+      --line: rgba(210, 235, 255, 0.16);
+      --line-strong: rgba(210, 235, 255, 0.32);
+      --text: #f4fbff;
+      --soft: #bdd0da;
+      --muted: #72838d;
+      --green: #b7ff50;
+      --green-deep: #5fd43a;
+      --cyan: #65d9ff;
+      --blue: #7197ff;
+      --amber: #ffd37a;
+      --shadow: 0 28px 90px rgba(0, 0, 0, 0.62);
       --radius: 8px;
       --webb: url("https://assets.science.nasa.gov/dynamicimage/assets/science/missions/webb/science/2022/10/STScI-01GGF8H15VZ09MET9HFBRQX4S3.png?crop=faces%2Cfocalpoint&fit=clip&h=2000&w=1155");
     }
@@ -37,11 +40,36 @@
       margin: 0;
       color: var(--text);
       background:
-        linear-gradient(180deg, rgba(184, 255, 106, 0.2), transparent 360px),
-        var(--bg);
+        radial-gradient(circle at 18% 10%, rgba(101, 217, 255, 0.16), transparent 26%),
+        radial-gradient(circle at 82% 18%, rgba(183, 255, 80, 0.12), transparent 24%),
+        linear-gradient(180deg, #020405 0%, #071011 52%, #030506 100%);
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       line-height: 1.5;
       overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -4;
+      background:
+        linear-gradient(90deg, rgba(3, 5, 6, 0.92), rgba(3, 5, 6, 0.5), rgba(3, 5, 6, 0.9)),
+        var(--webb) center/cover;
+      filter: saturate(0.9) contrast(1.1) brightness(0.64);
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 86px 86px;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.72), transparent 76%);
     }
 
     a {
@@ -62,6 +90,16 @@
       margin-top: 0;
     }
 
+    .rain-canvas {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      opacity: 0.62;
+    }
+
     .shell {
       width: min(1180px, calc(100% - 40px));
       margin: 0 auto;
@@ -71,9 +109,9 @@
       position: sticky;
       top: 0;
       z-index: 20;
-      border-bottom: 1px solid rgba(16, 21, 18, 0.08);
-      background: rgba(246, 248, 243, 0.84);
-      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(210, 235, 255, 0.1);
+      background: rgba(3, 5, 6, 0.74);
+      backdrop-filter: blur(22px);
     }
 
     .nav-inner {
@@ -88,7 +126,6 @@
       display: inline-flex;
       align-items: center;
       gap: 12px;
-      color: var(--ink);
       font-weight: 900;
     }
 
@@ -97,10 +134,11 @@
       height: 42px;
       display: grid;
       place-items: center;
-      border: 1px solid var(--line);
+      border: 1px solid rgba(183, 255, 80, 0.34);
       border-radius: var(--radius);
-      background: var(--paper);
-      box-shadow: 0 10px 28px rgba(16, 21, 18, 0.08);
+      background: rgba(183, 255, 80, 0.12);
+      color: var(--green);
+      box-shadow: 0 0 28px rgba(183, 255, 80, 0.16);
     }
 
     .nav-links {
@@ -108,9 +146,9 @@
       align-items: center;
       gap: 4px;
       padding: 5px;
-      border: 1px solid var(--line);
+      border: 1px solid rgba(210, 235, 255, 0.14);
       border-radius: var(--radius);
-      background: rgba(255, 255, 255, 0.72);
+      background: rgba(255, 255, 255, 0.05);
     }
 
     .nav-links a {
@@ -119,60 +157,57 @@
       align-items: center;
       padding: 0 12px;
       border-radius: 7px;
-      color: var(--muted);
+      color: var(--soft);
       font-size: 0.92rem;
       font-weight: 780;
       transition: background 160ms ease, color 160ms ease;
     }
 
     .nav-links a:hover {
-      color: var(--ink);
-      background: rgba(184, 255, 106, 0.34);
+      color: var(--text);
+      background: rgba(183, 255, 80, 0.12);
     }
 
-    .nav-actions {
-      display: flex;
-      gap: 8px;
-    }
-
-    .nav-button {
+    .nav-cta {
       min-height: 40px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 0 13px;
-      border: 1px solid var(--line);
+      padding: 0 14px;
       border-radius: var(--radius);
-      background: var(--paper);
-      color: var(--ink);
-      font-weight: 850;
-      font-size: 0.92rem;
-    }
-
-    .nav-button.dark {
-      background: var(--ink);
-      color: #ffffff;
-      border-color: var(--ink);
+      background: var(--green);
+      color: #091006;
+      font-weight: 900;
     }
 
     .hero {
-      padding: 76px 0 70px;
-      text-align: center;
+      padding: 84px 0 76px;
+      min-height: calc(100vh - 76px);
+      display: grid;
+      align-items: center;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(420px, 0.72fr);
+      gap: 46px;
+      align-items: center;
     }
 
     .pill {
       width: fit-content;
+      min-height: 38px;
       display: inline-flex;
       align-items: center;
       gap: 9px;
-      min-height: 38px;
       padding: 0 12px;
-      border: 1px solid rgba(58, 127, 46, 0.2);
+      border: 1px solid rgba(183, 255, 80, 0.28);
       border-radius: var(--radius);
-      background: rgba(184, 255, 106, 0.34);
-      color: var(--green-deep);
+      background: rgba(183, 255, 80, 0.09);
+      color: #dcffad;
       font-weight: 900;
       font-size: 0.9rem;
+      backdrop-filter: blur(14px);
     }
 
     .pill::before {
@@ -180,31 +215,31 @@
       width: 8px;
       height: 8px;
       border-radius: 999px;
-      background: var(--green-deep);
+      background: var(--green);
+      box-shadow: 0 0 18px var(--green);
     }
 
     h1 {
-      max-width: 920px;
-      margin: 20px auto 18px;
-      color: var(--ink);
-      font-size: clamp(3.2rem, 7.8vw, 7.1rem);
-      line-height: 0.95;
+      max-width: 760px;
+      margin: 18px 0;
+      color: var(--text);
+      font-size: clamp(3.3rem, 7.4vw, 6.9rem);
+      line-height: 0.94;
       letter-spacing: 0;
     }
 
     .hero-copy {
-      max-width: 760px;
-      margin: 0 auto;
-      color: var(--muted);
-      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      max-width: 690px;
+      margin-bottom: 0;
+      color: var(--soft);
+      font-size: clamp(1.05rem, 2vw, 1.24rem);
     }
 
     .hero-actions {
       display: flex;
-      justify-content: center;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 30px;
+      margin-top: 32px;
     }
 
     .button {
@@ -225,222 +260,223 @@
     }
 
     .button.primary {
-      color: var(--ink);
+      color: #091006;
       background: var(--green);
-      box-shadow: 0 18px 42px rgba(87, 145, 46, 0.2);
+      box-shadow: 0 18px 52px rgba(183, 255, 80, 0.2);
     }
 
     .button.secondary {
-      color: var(--ink);
-      background: var(--paper);
-      border-color: var(--line);
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(210, 235, 255, 0.2);
+      backdrop-filter: blur(14px);
     }
 
-    .dashboard-wrap {
-      margin-top: 50px;
-      position: relative;
-    }
-
-    .dashboard {
-      max-width: 1040px;
-      margin: 0 auto;
-      border: 1px solid var(--line);
+    .glass-device {
+      border: 1px solid rgba(210, 235, 255, 0.2);
       border-radius: var(--radius);
-      background: var(--paper);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.035)),
+        rgba(8, 13, 16, 0.7);
       box-shadow: var(--shadow);
       overflow: hidden;
-      text-align: left;
+      backdrop-filter: blur(22px);
     }
 
-    .dashboard-top {
+    .device-top {
       min-height: 58px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 14px;
+      gap: 12px;
       padding: 0 16px;
-      border-bottom: 1px solid var(--line);
-      background: #fbfcf8;
+      border-bottom: 1px solid rgba(210, 235, 255, 0.14);
+      background: rgba(4, 7, 9, 0.72);
     }
 
-    .window-dots {
+    .dots {
       display: flex;
       gap: 7px;
     }
 
-    .window-dots span {
-      width: 11px;
-      height: 11px;
+    .dots span {
+      width: 10px;
+      height: 10px;
       border-radius: 999px;
       background: #ff6b6b;
     }
 
-    .window-dots span:nth-child(2) {
+    .dots span:nth-child(2) {
       background: #ffd166;
     }
 
-    .window-dots span:nth-child(3) {
-      background: #52d273;
+    .dots span:nth-child(3) {
+      background: var(--green);
     }
 
-    .dash-title {
-      color: var(--ink);
-      font-weight: 900;
+    .device-title {
+      color: var(--soft);
+      font-weight: 850;
+      font-size: 0.92rem;
     }
 
-    .dash-status {
+    .live {
       min-height: 30px;
       display: inline-flex;
       align-items: center;
       padding: 0 10px;
       border-radius: var(--radius);
-      background: rgba(184, 255, 106, 0.4);
-      color: var(--green-deep);
-      font-weight: 850;
-      font-size: 0.88rem;
+      background: rgba(183, 255, 80, 0.12);
+      color: var(--green);
+      font-weight: 900;
+      font-size: 0.85rem;
     }
 
-    .dashboard-body {
+    .device-body {
+      padding: 16px;
       display: grid;
-      grid-template-columns: minmax(0, 1.04fr) minmax(310px, 0.72fr);
-      gap: 18px;
-      padding: 18px;
-      background:
-        linear-gradient(180deg, rgba(223, 240, 255, 0.52), rgba(255, 255, 255, 0)),
-        var(--paper);
+      gap: 14px;
     }
 
-    .space-preview {
-      min-height: 430px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      overflow: hidden;
+    .rain-window {
+      min-height: 330px;
       position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(210, 235, 255, 0.14);
+      border-radius: var(--radius);
       background:
-        linear-gradient(180deg, rgba(16, 21, 18, 0.02), rgba(16, 21, 18, 0.74)),
+        linear-gradient(180deg, rgba(3, 5, 6, 0.08), rgba(3, 5, 6, 0.88)),
         var(--webb) center/cover;
     }
 
-    .space-preview::after {
+    .rain-window::before {
       content: "";
       position: absolute;
-      left: 18px;
-      right: 18px;
-      bottom: 18px;
-      min-height: 112px;
-      border: 1px solid rgba(255, 255, 255, 0.28);
-      border-radius: var(--radius);
-      background: rgba(16, 21, 18, 0.52);
-      backdrop-filter: blur(12px);
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 22% 18%, rgba(255, 255, 255, 0.24) 0 1px, transparent 2px),
+        radial-gradient(ellipse at 68% 28%, rgba(255, 255, 255, 0.18) 0 1px, transparent 2px),
+        radial-gradient(ellipse at 42% 68%, rgba(255, 255, 255, 0.2) 0 1px, transparent 2px);
+      background-size: 90px 160px, 130px 190px, 110px 210px;
+      filter: blur(0.2px);
+      opacity: 0.78;
     }
 
-    .space-label {
+    .rain-window::after {
+      content: "";
       position: absolute;
-      left: 36px;
-      right: 36px;
-      bottom: 39px;
+      inset: 0;
+      background-image:
+        linear-gradient(110deg, transparent 0 48%, rgba(255, 255, 255, 0.34) 49%, transparent 52%),
+        linear-gradient(100deg, transparent 0 46%, rgba(101, 217, 255, 0.16) 48%, transparent 51%);
+      background-size: 70px 190px, 110px 250px;
+      animation: rainPane 2.8s linear infinite;
+      opacity: 0.55;
+    }
+
+    @keyframes rainPane {
+      to {
+        background-position: 0 190px, 0 250px;
+      }
+    }
+
+    .window-caption {
+      position: absolute;
+      left: 16px;
+      right: 16px;
+      bottom: 16px;
       z-index: 1;
-      color: #ffffff;
-    }
-
-    .space-label strong {
-      display: block;
-      margin-bottom: 6px;
-      font-size: 1.12rem;
-    }
-
-    .space-label span {
-      color: rgba(255, 255, 255, 0.78);
-      font-size: 0.94rem;
-    }
-
-    .profile-panel {
-      display: grid;
-      gap: 12px;
-    }
-
-    .mini-card {
       padding: 16px;
-      border: 1px solid var(--line);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       border-radius: var(--radius);
-      background: #ffffff;
+      background: rgba(3, 5, 6, 0.62);
+      backdrop-filter: blur(14px);
     }
 
-    .identity {
+    .window-caption strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--text);
+    }
+
+    .window-caption span {
+      color: var(--soft);
+      font-size: 0.92rem;
+    }
+
+    .profile-row {
       display: grid;
-      grid-template-columns: 56px 1fr;
+      grid-template-columns: 58px 1fr;
       gap: 13px;
       align-items: center;
+      padding: 16px;
+      border: 1px solid rgba(210, 235, 255, 0.14);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.055);
     }
 
     .avatar {
-      width: 56px;
-      height: 56px;
+      width: 58px;
+      height: 58px;
       display: grid;
       place-items: center;
       border-radius: var(--radius);
-      background: var(--ink);
-      color: #ffffff;
+      background: linear-gradient(135deg, var(--green), var(--cyan));
+      color: #07100b;
       font-weight: 950;
-      font-size: 1.14rem;
+      font-size: 1.18rem;
     }
 
-    .identity strong,
-    .mini-card h3 {
-      color: var(--ink);
+    .profile-row strong {
+      display: block;
+      color: var(--text);
     }
 
-    .identity span,
-    .mini-card p {
-      color: var(--muted);
-    }
-
-    .identity span {
+    .profile-row span {
       display: block;
       margin-top: 2px;
-      font-size: 0.93rem;
+      color: var(--soft);
+      font-size: 0.94rem;
     }
 
-    .mini-card h3 {
-      margin-bottom: 8px;
-      font-size: 1.1rem;
-    }
-
-    .mini-card p {
-      margin-bottom: 0;
-    }
-
-    .status-grid {
+    .mini-stats {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 10px;
     }
 
-    .status-tile {
-      min-height: 94px;
+    .mini-stat {
+      min-height: 92px;
       padding: 14px;
-      border: 1px solid var(--line);
+      border: 1px solid rgba(210, 235, 255, 0.14);
       border-radius: var(--radius);
-      background: #f7f9f2;
+      background: rgba(255, 255, 255, 0.055);
     }
 
-    .status-tile strong {
+    .mini-stat strong {
       display: block;
-      color: var(--ink);
+      color: var(--text);
       font-size: 1.7rem;
       line-height: 1;
     }
 
-    .status-tile span {
+    .mini-stat span {
       display: block;
       margin-top: 8px;
       color: var(--muted);
-      font-size: 0.9rem;
       font-weight: 760;
+      font-size: 0.88rem;
     }
 
     .section {
       padding: 88px 0;
+      background: rgba(3, 5, 6, 0.76);
+    }
+
+    .section.alt {
+      background: rgba(7, 13, 15, 0.84);
+      border-top: 1px solid rgba(210, 235, 255, 0.1);
+      border-bottom: 1px solid rgba(210, 235, 255, 0.1);
     }
 
     .section-head {
@@ -453,46 +489,43 @@
 
     h2 {
       margin-bottom: 0;
-      color: var(--ink);
-      font-size: clamp(2.15rem, 4.3vw, 4.1rem);
+      color: var(--text);
+      font-size: clamp(2.12rem, 4.2vw, 4rem);
       line-height: 1.03;
       letter-spacing: 0;
     }
 
     .section-head p {
       margin-bottom: 0;
-      color: var(--muted);
+      color: var(--soft);
       font-size: 1.05rem;
     }
 
-    .problem-grid,
-    .feature-grid {
+    .cards {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 16px;
     }
 
-    .story-card,
-    .feature-card,
+    .card,
     .contact-card,
     .form-card {
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      background: var(--paper);
-      box-shadow: 0 16px 44px rgba(16, 21, 18, 0.07);
+      background: var(--panel);
+      box-shadow: 0 18px 60px rgba(0, 0, 0, 0.28);
+      backdrop-filter: blur(18px);
     }
 
-    .story-card,
-    .feature-card {
-      min-height: 245px;
+    .card {
+      min-height: 260px;
       padding: 22px;
       display: grid;
       align-content: space-between;
       transition: transform 160ms ease, border-color 160ms ease;
     }
 
-    .story-card:hover,
-    .feature-card:hover {
+    .card:hover {
       transform: translateY(-4px);
       border-color: var(--line-strong);
     }
@@ -503,102 +536,49 @@
       display: grid;
       place-items: center;
       border-radius: var(--radius);
-      background: var(--green);
-      color: var(--ink);
+      background: rgba(183, 255, 80, 0.14);
+      color: var(--green);
       font-weight: 950;
+      border: 1px solid rgba(183, 255, 80, 0.22);
     }
 
-    .story-card:nth-child(2) .icon,
-    .feature-card:nth-child(2) .icon {
-      background: var(--sky);
-      color: var(--blue);
-    }
-
-    .story-card:nth-child(3) .icon,
-    .feature-card:nth-child(3) .icon {
-      background: #ffe6b8;
-      color: #8c5a00;
-    }
-
-    .story-card h3,
-    .feature-card h3 {
-      margin: 28px 0 10px;
-      color: var(--ink);
+    .card h3 {
+      margin: 30px 0 10px;
+      color: var(--text);
       font-size: 1.2rem;
     }
 
-    .story-card p,
-    .feature-card p {
+    .card p {
       margin-bottom: 0;
-      color: var(--muted);
+      color: var(--soft);
     }
 
-    .dark-band {
-      padding: 88px 0;
-      color: #ffffff;
-      background:
-        linear-gradient(90deg, rgba(16, 21, 18, 0.94), rgba(16, 21, 18, 0.7)),
-        var(--webb) center/cover;
-    }
-
-    .dark-band h2 {
-      color: #ffffff;
-    }
-
-    .dark-band .section-head p {
-      color: rgba(255, 255, 255, 0.72);
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1px;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      border-radius: var(--radius);
-      background: rgba(255, 255, 255, 0.16);
-    }
-
-    .stat {
-      min-height: 150px;
-      padding: 22px;
-      display: grid;
-      align-content: center;
-      background: rgba(16, 21, 18, 0.62);
-      backdrop-filter: blur(14px);
-    }
-
-    .comparison {
+    .compare {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 18px;
     }
 
     .compare-panel {
-      min-height: 360px;
+      min-height: 350px;
       padding: 24px;
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      background: var(--paper);
-      box-shadow: 0 16px 44px rgba(16, 21, 18, 0.07);
+      background: var(--panel);
+      backdrop-filter: blur(18px);
     }
 
-    .compare-panel.dark {
-      color: #ffffff;
+    .compare-panel.best {
       background:
-        linear-gradient(135deg, rgba(17, 24, 23, 0.92), rgba(17, 24, 23, 0.74)),
-        var(--webb) center/cover;
-      border-color: rgba(255, 255, 255, 0.16);
+        linear-gradient(135deg, rgba(183, 255, 80, 0.16), rgba(101, 217, 255, 0.08)),
+        var(--panel-strong);
+      border-color: rgba(183, 255, 80, 0.28);
     }
 
     .compare-panel h3 {
       margin-bottom: 16px;
-      color: var(--ink);
-      font-size: 1.35rem;
-    }
-
-    .compare-panel.dark h3 {
-      color: #ffffff;
+      color: var(--text);
+      font-size: 1.34rem;
     }
 
     .compare-list {
@@ -607,61 +587,52 @@
     }
 
     .compare-item {
+      min-height: 46px;
       display: flex;
       align-items: center;
       gap: 10px;
-      min-height: 46px;
       padding: 10px 12px;
-      border: 1px solid var(--line);
+      border: 1px solid rgba(210, 235, 255, 0.12);
       border-radius: var(--radius);
-      background: #fbfcf8;
-      color: var(--muted);
+      background: rgba(255, 255, 255, 0.055);
+      color: var(--soft);
       font-weight: 760;
     }
 
-    .compare-panel.dark .compare-item {
-      color: rgba(255, 255, 255, 0.8);
-      border-color: rgba(255, 255, 255, 0.16);
-      background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(10px);
-    }
-
-    .compare-dot {
+    .dot {
       width: 10px;
       height: 10px;
       flex: 0 0 auto;
       border-radius: 999px;
-      background: #c9d0c8;
+      background: var(--muted);
     }
 
-    .compare-panel.dark .compare-dot {
+    .best .dot {
       background: var(--green);
-      box-shadow: 0 0 14px rgba(184, 255, 106, 0.5);
+      box-shadow: 0 0 16px rgba(183, 255, 80, 0.55);
     }
 
-    .chip-wall {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 28px;
-    }
-
-    .chip {
-      min-height: 40px;
-      display: inline-flex;
-      align-items: center;
-      padding: 0 14px;
-      border: 1px solid rgba(255, 255, 255, 0.16);
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      overflow: hidden;
+      border: 1px solid var(--line);
       border-radius: var(--radius);
-      background: rgba(255, 255, 255, 0.08);
-      color: rgba(255, 255, 255, 0.82);
-      font-weight: 820;
-      backdrop-filter: blur(12px);
+      background: rgba(210, 235, 255, 0.12);
+    }
+
+    .stat {
+      min-height: 150px;
+      padding: 22px;
+      display: grid;
+      align-content: center;
+      background: rgba(7, 13, 15, 0.76);
+      backdrop-filter: blur(14px);
     }
 
     .stat strong {
-      display: block;
+      color: var(--text);
       font-size: clamp(2rem, 4vw, 3.2rem);
       line-height: 1;
     }
@@ -669,12 +640,15 @@
     .stat span {
       display: block;
       margin-top: 10px;
-      color: rgba(255, 255, 255, 0.74);
+      color: var(--soft);
       font-weight: 760;
     }
 
     .contact {
       padding: 88px 0;
+      background:
+        linear-gradient(180deg, rgba(3, 5, 6, 0.52), rgba(3, 5, 6, 0.94)),
+        var(--webb) center/cover;
     }
 
     .contact-grid {
@@ -694,7 +668,7 @@
     }
 
     .contact-card p {
-      color: var(--muted);
+      color: var(--soft);
       font-size: 1.05rem;
     }
 
@@ -706,9 +680,9 @@
       margin: 10px 0 20px;
       padding: 0 15px;
       border-radius: var(--radius);
-      background: var(--ink);
-      color: #ffffff;
-      font-weight: 850;
+      background: var(--green);
+      color: #091006;
+      font-weight: 900;
     }
 
     .social-links {
@@ -724,17 +698,17 @@
       justify-content: space-between;
       gap: 12px;
       padding: 11px 13px;
-      border: 1px solid var(--line);
+      border: 1px solid rgba(210, 235, 255, 0.14);
       border-radius: var(--radius);
-      background: #fbfcf8;
+      background: rgba(255, 255, 255, 0.055);
       font-weight: 850;
       transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
     }
 
     .social-link:hover {
       transform: translateY(-2px);
-      border-color: var(--line-strong);
-      background: rgba(184, 255, 106, 0.2);
+      border-color: rgba(183, 255, 80, 0.34);
+      background: rgba(183, 255, 80, 0.08);
     }
 
     .social-link span {
@@ -746,7 +720,7 @@
     }
 
     .social-link strong {
-      color: var(--green-deep);
+      color: var(--green);
       font-size: 0.9rem;
     }
 
@@ -758,7 +732,7 @@
     label {
       display: grid;
       gap: 7px;
-      color: var(--ink);
+      color: var(--text);
       font-weight: 760;
       font-size: 0.92rem;
     }
@@ -766,10 +740,10 @@
     input,
     textarea {
       width: 100%;
-      border: 1px solid var(--line);
+      border: 1px solid rgba(210, 235, 255, 0.16);
       border-radius: var(--radius);
-      background: #fbfcf8;
-      color: var(--ink);
+      background: rgba(255, 255, 255, 0.065);
+      color: var(--text);
       padding: 13px 14px;
       outline: none;
       transition: border-color 160ms ease, box-shadow 160ms ease;
@@ -777,7 +751,7 @@
 
     input::placeholder,
     textarea::placeholder {
-      color: rgba(105, 116, 111, 0.68);
+      color: rgba(189, 208, 218, 0.62);
     }
 
     textarea {
@@ -787,14 +761,14 @@
 
     input:focus,
     textarea:focus {
-      border-color: rgba(58, 127, 46, 0.42);
-      box-shadow: 0 0 0 4px rgba(184, 255, 106, 0.28);
+      border-color: rgba(183, 255, 80, 0.42);
+      box-shadow: 0 0 0 4px rgba(183, 255, 80, 0.14);
     }
 
     .submit {
       width: 100%;
       background: var(--green);
-      color: var(--ink);
+      color: #091006;
     }
 
     footer {
@@ -802,23 +776,22 @@
       text-align: center;
       color: var(--muted);
       font-size: 0.94rem;
-      border-top: 1px solid var(--line);
-      background: #ffffff;
+      border-top: 1px solid rgba(210, 235, 255, 0.1);
+      background: #030506;
     }
 
     @media (max-width: 980px) {
-      .dashboard-body,
+      .hero-grid,
       .section-head,
-      .problem-grid,
-      .feature-grid,
-      .comparison,
+      .cards,
+      .compare,
       .stats,
       .contact-grid {
         grid-template-columns: 1fr;
       }
 
-      .space-preview {
-        min-height: 390px;
+      .glass-device {
+        max-width: 620px;
       }
     }
 
@@ -827,17 +800,21 @@
         width: min(100% - 28px, 1180px);
       }
 
-      .nav-links,
-      .nav-actions .nav-button:first-child {
+      .nav-links {
         display: none;
       }
 
+      .nav-inner {
+        min-height: 68px;
+      }
+
       .hero {
-        padding: 52px 0 54px;
+        padding: 54px 0 58px;
+        min-height: auto;
       }
 
       h1 {
-        font-size: clamp(3rem, 17vw, 4.7rem);
+        font-size: clamp(3rem, 17vw, 4.8rem);
       }
 
       .hero-actions,
@@ -845,31 +822,17 @@
         width: 100%;
       }
 
-      .dashboard-wrap {
-        margin-top: 34px;
+      .rain-window {
+        min-height: 300px;
       }
 
-      .dashboard-body,
-      .dashboard-top,
-      .mini-card,
-      .story-card,
-      .feature-card,
-      .contact-card,
-      .form-card {
-        padding: 14px;
-      }
-
-      .identity {
-        grid-template-columns: 1fr;
-      }
-
-      .status-grid,
+      .profile-row,
+      .mini-stats,
       .social-links {
         grid-template-columns: 1fr;
       }
 
       .section,
-      .dark-band,
       .contact {
         padding: 62px 0;
       }
@@ -877,6 +840,8 @@
   </style>
 </head>
 <body>
+  <canvas class="rain-canvas" id="rainCanvas" aria-hidden="true"></canvas>
+
   <nav class="nav" aria-label="Primary navigation">
     <div class="shell nav-inner">
       <a class="brand" href="#home" aria-label="Rohit Singh home">
@@ -885,208 +850,140 @@
       </a>
       <div class="nav-links">
         <a href="#profile">Profile</a>
-        <a href="#work">System</a>
-        <a href="#stats">Stats</a>
+        <a href="#style">Style</a>
+        <a href="#proof">Proof</a>
         <a href="#contact">Contact</a>
       </div>
-      <div class="nav-actions">
-        <a class="nav-button" href="#contact">Contact</a>
-        <a class="nav-button dark" href="mailto:rs.rajput.1016@gmail.com">Email</a>
-      </div>
+      <a class="nav-cta" href="mailto:rs.rajput.1016@gmail.com">Email</a>
     </div>
   </nav>
 
   <header class="hero" id="home">
-    <div class="shell">
-      <span class="pill">New portfolio experience</span>
-      <h1>Personal Portfolio That Feels Clean, Smart, and Real</h1>
-      <p class="hero-copy">
-        Rohit Singh's digital identity redesigned in a modern startup-style layout with real NASA Webb imagery, crisp sections, and clear social contact points.
-      </p>
-      <div class="hero-actions">
-        <a class="button primary" href="#profile">See Profile</a>
-        <a class="button secondary" href="#contact">Connect Now</a>
-      </div>
-
-      <div class="dashboard-wrap" id="profile">
-        <div class="dashboard" aria-label="Rohit Singh portfolio dashboard">
-          <div class="dashboard-top">
-            <div class="window-dots" aria-hidden="true"><span></span><span></span><span></span></div>
-            <div class="dash-title">rohit.space/profile</div>
-            <div class="dash-status">Live</div>
-          </div>
-          <div class="dashboard-body">
-            <div class="space-preview">
-              <div class="space-label">
-                <strong>Real NASA Webb visual</strong>
-                <span>Pillars of Creation image credited to NASA, ESA, CSA, and STScI.</span>
-              </div>
-            </div>
-
-            <aside class="profile-panel">
-              <div class="mini-card identity">
-                <div class="avatar">RS</div>
-                <div>
-                  <strong>Rohit Singh</strong>
-                  <span>Modern personal portfolio and digital identity.</span>
-                </div>
-              </div>
-              <div class="mini-card">
-                <h3>Profile Summary</h3>
-                <p>Clean first impression, personal details, social links, and contact flow in one polished page.</p>
-              </div>
-              <div class="status-grid">
-                <div class="status-tile">
-                  <strong>4</strong>
-                  <span>Social links</span>
-                </div>
-                <div class="status-tile">
-                  <strong>1</strong>
-                  <span>Email contact</span>
-                </div>
-              </div>
-            </aside>
-          </div>
+    <div class="shell hero-grid">
+      <div>
+        <span class="pill">Dark rainy glass portfolio</span>
+        <h1>Rohit's profile, but cinematic and real.</h1>
+        <p class="hero-copy">
+          A black premium portfolio with realistic rain-on-glass motion, real NASA space imagery, clean product-style sections, and all personal details preserved.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#profile">View Profile</a>
+          <a class="button secondary" href="#contact">Connect Now</a>
         </div>
       </div>
+
+      <aside class="glass-device" id="profile" aria-label="Rohit Singh portfolio preview">
+        <div class="device-top">
+          <div class="dots" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div class="device-title">rohit.profile/live</div>
+          <div class="live">Live</div>
+        </div>
+        <div class="device-body">
+          <div class="rain-window">
+            <div class="window-caption">
+              <strong>Real NASA Webb image under rain glass</strong>
+              <span>Pillars of Creation imagery credited to NASA, ESA, CSA, and STScI.</span>
+            </div>
+          </div>
+          <div class="profile-row">
+            <div class="avatar">RS</div>
+            <div>
+              <strong>Rohit Singh</strong>
+              <span>Personal digital identity, contact hub, and social profile.</span>
+            </div>
+          </div>
+          <div class="mini-stats">
+            <div class="mini-stat"><strong>4</strong><span>Social links</span></div>
+            <div class="mini-stat"><strong>1</strong><span>Email</span></div>
+            <div class="mini-stat"><strong>NASA</strong><span>Visual</span></div>
+          </div>
+        </div>
+      </aside>
     </div>
   </header>
 
   <main>
-    <section class="section" id="work">
+    <section class="section" id="style">
       <div class="shell">
         <div class="section-head">
-          <h2>What this portfolio solves.</h2>
+          <h2>Black, wet-glass, and premium.</h2>
           <p>
-            The page is structured like a polished product landing page, but every section is tuned for Rohit's personal brand.
+            The page now avoids the flat light look and goes for a darker, more realistic screen-through-rain mood.
           </p>
         </div>
 
-        <div class="problem-grid">
-          <article class="story-card">
+        <div class="cards">
+          <article class="card">
             <div>
               <div class="icon">01</div>
-              <h3>First impression</h3>
-              <p>A strong hero section makes the portfolio look intentional, premium, and easy to understand.</p>
+              <h3>Real rain feeling</h3>
+              <p>Canvas rain animation and glass overlays create movement without making the page noisy.</p>
             </div>
           </article>
-          <article class="story-card">
+          <article class="card">
             <div>
               <div class="icon">02</div>
-              <h3>Details organized</h3>
-              <p>Personal information is not scattered. Name, email, and social links are grouped cleanly.</p>
+              <h3>Better colors</h3>
+              <p>Black base, neon green CTA, icy cyan highlights, and soft gray text for a sharp premium look.</p>
             </div>
           </article>
-          <article class="story-card">
+          <article class="card">
             <div>
               <div class="icon">03</div>
-              <h3>Real visual quality</h3>
-              <p>The space theme uses real Webb imagery instead of fake planets or cartoon-style graphics.</p>
+              <h3>Gennie-style polish</h3>
+              <p>Dashboard preview, proof sections, comparison blocks, stats, and a strong contact flow.</p>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section alt">
       <div class="shell">
         <div class="section-head">
-          <h2>Old profile feel vs new portfolio system.</h2>
+          <h2>Old flat page vs this new mood.</h2>
           <p>
-            This section follows the product-comparison style: show the problem clearly, then show the upgraded experience.
+            This version is built to feel like a premium product page, but with a darker realistic atmosphere.
           </p>
         </div>
 
-        <div class="comparison">
+        <div class="compare">
           <article class="compare-panel">
             <h3>Before</h3>
             <div class="compare-list">
-              <div class="compare-item"><span class="compare-dot"></span> Personal details looked pasted into generic blocks.</div>
-              <div class="compare-item"><span class="compare-dot"></span> Space theme felt more decorative than real.</div>
-              <div class="compare-item"><span class="compare-dot"></span> Sections did not feel like a professional product page.</div>
-              <div class="compare-item"><span class="compare-dot"></span> Contact links were present but not presented as a system.</div>
+              <div class="compare-item"><span class="dot"></span> Too flat and not cinematic enough.</div>
+              <div class="compare-item"><span class="dot"></span> Real space image was present, but the mood was missing.</div>
+              <div class="compare-item"><span class="dot"></span> Page felt more like a normal template.</div>
+              <div class="compare-item"><span class="dot"></span> Colors did not feel powerful.</div>
             </div>
           </article>
-          <article class="compare-panel dark">
+          <article class="compare-panel best">
             <h3>Now</h3>
             <div class="compare-list">
-              <div class="compare-item"><span class="compare-dot"></span> SaaS-style hero with a realistic dashboard mockup.</div>
-              <div class="compare-item"><span class="compare-dot"></span> Real NASA Webb image used as the visual centerpiece.</div>
-              <div class="compare-item"><span class="compare-dot"></span> Profile, proof, features, stats, and contact flow are structured.</div>
-              <div class="compare-item"><span class="compare-dot"></span> Personal details are preserved on-page and in `personal-details.md`.</div>
+              <div class="compare-item"><span class="dot"></span> Black glass interface with live rain movement.</div>
+              <div class="compare-item"><span class="dot"></span> NASA image feels behind a real wet screen.</div>
+              <div class="compare-item"><span class="dot"></span> Strong dashboard hero with product-style sections.</div>
+              <div class="compare-item"><span class="dot"></span> Better contrast, better CTA, better premium feel.</div>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="dark-band" id="stats">
+    <section class="section" id="proof">
       <div class="shell">
         <div class="section-head">
-          <h2>Built like a professional launch page.</h2>
-          <p>Clear metrics, profile framing, and a clean contact system give the page the SaaS-style polish you pointed to.</p>
+          <h2>Everything still stays useful.</h2>
+          <p>
+            The visual mood changed, but the page still keeps Rohit's details clean, readable, and ready for GitHub Pages.
+          </p>
         </div>
 
         <div class="stats">
-          <div class="stat">
-            <strong>100%</strong>
-            <span>Responsive HTML</span>
-          </div>
-          <div class="stat">
-            <strong>4</strong>
-            <span>Social channels</span>
-          </div>
-          <div class="stat">
-            <strong>1</strong>
-            <span>Profile identity</span>
-          </div>
-          <div class="stat">
-            <strong>NASA</strong>
-            <span>Real image source</span>
-          </div>
-        </div>
-
-        <div class="chip-wall" aria-label="Portfolio capabilities">
-          <span class="chip">Profile</span>
-          <span class="chip">Contact</span>
-          <span class="chip">Social Links</span>
-          <span class="chip">NASA Visual</span>
-          <span class="chip">Responsive</span>
-          <span class="chip">GitHub Ready</span>
-          <span class="chip">Markdown Details</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="shell">
-        <div class="section-head">
-          <h2>Core sections, redesigned from scratch.</h2>
-          <p>The layout borrows the clean product-page rhythm: hero, dashboard, problem, proof, features, and contact.</p>
-        </div>
-
-        <div class="feature-grid">
-          <article class="feature-card">
-            <div>
-              <div class="icon">A</div>
-              <h3>Hero dashboard</h3>
-              <p>A browser-style portfolio mockup creates a realistic, polished centerpiece.</p>
-            </div>
-          </article>
-          <article class="feature-card">
-            <div>
-              <div class="icon">B</div>
-              <h3>Personal details file</h3>
-              <p>Rohit's details are also saved separately in `personal-details.md` on the Desktop folder.</p>
-            </div>
-          </article>
-          <article class="feature-card">
-            <div>
-              <div class="icon">C</div>
-              <h3>Contact flow</h3>
-              <p>Visitors can use email, social links, or the demo message form to connect.</p>
-            </div>
-          </article>
+          <div class="stat"><strong>100%</strong><span>Responsive HTML</span></div>
+          <div class="stat"><strong>4</strong><span>Social channels</span></div>
+          <div class="stat"><strong>1</strong><span>Contact email</span></div>
+          <div class="stat"><strong>.md</strong><span>Details saved</span></div>
         </div>
       </div>
     </section>
@@ -1097,7 +994,7 @@
           <span class="pill">Contact hub</span>
           <h2>Connect with Rohit Singh.</h2>
           <p>
-            All personal details from the old page are preserved here and in the markdown file for clean future updates.
+            All personal details from the old page are preserved here and also saved in `personal-details.md` on the Desktop.
           </p>
           <a class="email-pill" href="mailto:rs.rajput.1016@gmail.com">rs.rajput.1016@gmail.com</a>
 
@@ -1147,7 +1044,66 @@
   </main>
 
   <footer>
-    &copy; 2026 Rohit Singh. Inspired by modern SaaS landing-page structure. NASA imagery credited to NASA, ESA, CSA, and STScI.
+    &copy; 2026 Rohit Singh. Dark rain-glass portfolio with NASA imagery credited to NASA, ESA, CSA, and STScI.
   </footer>
+
+  <script>
+    const canvas = document.getElementById("rainCanvas");
+    const ctx = canvas.getContext("2d");
+    let drops = [];
+
+    function resizeRain() {
+      const ratio = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = Math.floor(window.innerWidth * ratio);
+      canvas.height = Math.floor(window.innerHeight * ratio);
+      canvas.style.width = `${window.innerWidth}px`;
+      canvas.style.height = `${window.innerHeight}px`;
+      ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+
+      const count = Math.min(180, Math.floor((window.innerWidth * window.innerHeight) / 5200));
+      drops = Array.from({ length: count }, () => ({
+        x: Math.random() * window.innerWidth,
+        y: Math.random() * window.innerHeight,
+        length: 16 + Math.random() * 38,
+        speed: 5 + Math.random() * 9,
+        alpha: 0.12 + Math.random() * 0.28,
+        width: 0.8 + Math.random() * 1.2
+      }));
+    }
+
+    function drawRain() {
+      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+      ctx.lineCap = "round";
+
+      for (const drop of drops) {
+        ctx.beginPath();
+        const gradient = ctx.createLinearGradient(drop.x, drop.y, drop.x + 12, drop.y + drop.length);
+        gradient.addColorStop(0, `rgba(255,255,255,0)`);
+        gradient.addColorStop(0.45, `rgba(205,236,255,${drop.alpha})`);
+        gradient.addColorStop(1, `rgba(183,255,80,${drop.alpha * 0.22})`);
+        ctx.strokeStyle = gradient;
+        ctx.lineWidth = drop.width;
+        ctx.moveTo(drop.x, drop.y);
+        ctx.lineTo(drop.x + 12, drop.y + drop.length);
+        ctx.stroke();
+
+        drop.x += 1.4;
+        drop.y += drop.speed;
+        if (drop.y > window.innerHeight + 60) {
+          drop.y = -60;
+          drop.x = Math.random() * window.innerWidth;
+        }
+        if (drop.x > window.innerWidth + 40) {
+          drop.x = -40;
+        }
+      }
+
+      requestAnimationFrame(drawRain);
+    }
+
+    resizeRain();
+    drawRain();
+    window.addEventListener("resize", resizeRain);
+  </script>
 </body>
 </html>
